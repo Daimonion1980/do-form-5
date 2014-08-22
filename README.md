@@ -14,7 +14,7 @@ Formulargenerator für Redaxo CMS
 
 
 
-![](<../../Bildschirmfoto 2014-08-22 um 19.55.32.jpg>)
+![](<do form.jpg>)
 
 ### Neu in Version 5.0 
 
