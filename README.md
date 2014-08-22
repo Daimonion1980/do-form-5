@@ -4,8 +4,6 @@ do form! 5
 Formulargenerator für Redaxo CMS
 --------------------------------
 
-![](<../../Bildschirmfoto 2014-08-22 um 19.55.32.jpg>)
-
 [Ausführliche Infos][1]
 
 [1]: <http://klxm.de/produkte/>
@@ -13,6 +11,10 @@ Formulargenerator für Redaxo CMS
 [Wiki][2]
 
 [2]: <http://www.redaxo.org/de/wiki/index.php?n=R4.DoForm>
+
+
+
+![](<../../Bildschirmfoto 2014-08-22 um 19.55.32.jpg>)
 
 ### Neu in Version 5.0 
 
