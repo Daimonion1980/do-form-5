@@ -7,10 +7,14 @@ Formulargenerator für Redaxo CMS
 Version 5.0
 Diese Version sollte nicht als Ersatz für do form! 4 eingesetzt werden. Einige Felder und auch die Ausgaben unterscheiden sich. 
 Personalisierung erweitert, entsprechend Modul Nr. 653, zusätzlich mit Anrede-Erkennung für die Bestätigungsmail
+
 Date-Feld wurde durch HTML5-Date-Feld ersetzt.
 Dadurch können die nativen Kalender-Widgets verwendet werden. Fallback per Jquery-Datepicker empfehlenswert. Durch den Parameter today, kann das aktuelle Datum vorausgewählt werden.
+
 Das alte date-Feld heißt jetzt dateselect. xdate wurde entfernt.  
+
 IBAN und BIC können jetzt eingesetzt und validiert werden. 
+
 In der Bestätigungs-E-Mail wird die IBAN anonymisiert.
 
 Beispiele der neuen Felder: 
