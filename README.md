@@ -27,13 +27,13 @@ IBAN und BIC können jetzt eingesetzt und validiert werden.
 
 In der Bestätigungs-E-Mail wird die IBAN anonymisiert.
 
-**Beispiele der neuen Felder: **
+Beispiele der neuen Felder:
 
-IBAN\|Ihre IBAN\|1\|DE\|\|iban
+`IBAN|Ihre IBAN|1|DE||iban `
 
-BIC\|BIC\|1\|\|\|bic
+`BIC|BIC|1|||bic `
 
-date\|Datum der Meldung\|1\|today\|\|date
+`date|Datum der Meldung|1|today||date `
 
 (Wird kein default-value eingegeben, werden entsprechende Placeholder in
 modernen Browsern dargestellt)
@@ -42,11 +42,11 @@ Neue CSS-Klassen erleichtern die Gestaltung der Textfelder.
 
 z.B.:
 
-.formgen .formtext.femail {}
+`.formgen .formtext.femail {} `
 
-.formgen .formtext.fIBAN {}
+`.formgen .formtext.fIBAN {} `
 
-.formgen .formtext.fpassword {}
+`.formgen .formtext.fpassword {} `
 
 
 
