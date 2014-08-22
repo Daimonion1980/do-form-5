@@ -12,7 +12,7 @@ Formulargenerator für Redaxo CMS
 
 [2]: <http://www.redaxo.org/de/wiki/index.php?n=R4.DoForm>
 
-![](<do form.jpg>) 
+![](<do-code.jpg>) 
 
 ### Neu in Version 5.0 
 
