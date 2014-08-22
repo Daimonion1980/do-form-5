@@ -4,7 +4,7 @@ do-form-5
 Formulargenerator für Redaxo CMS
 --------------------------------
 
-[Ausführliche Infos:][1]
+[Ausführliche Infos][1]
 
 [1]: <http://klxm.de/produkte/>
 
