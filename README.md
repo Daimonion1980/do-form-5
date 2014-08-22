@@ -14,8 +14,6 @@ Formulargenerator für Redaxo CMS
 
 
 
-![](<do form.jpg>) 
-
 ### Neu in Version 5.0 
 
 Diese Version sollte nicht als Ersatz für do form! 4 eingesetzt werden.
