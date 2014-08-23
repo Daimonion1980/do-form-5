@@ -7,7 +7,7 @@
 $doformversion="5.0";
  /**
  * ab Redaxo Version: 4.5
- * Module-id: 364
+ * Module-id: 572
  * Werbeagentur KLXM Crossmedia  
  * www.klxm.de
  * Hinweise:
