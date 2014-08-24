@@ -475,6 +475,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
         case "email":
         case "url":
         case "date":
+        case "time":
         case "IBAN":
         case "BIC":
             $req  = '';
@@ -671,6 +672,11 @@ for ($i = 0; $i < count($form_elements); $i++) {
                 $placeholder = ' placeholder="tt.mm.jjjj"';
                 $inptype     = "date";
             }
+            if ($element[0] == "time") {
+                $placeholder = ' placeholder="hh:mm"';
+                $inptype     = "date";
+            }
+            
             if ($element[0] == "text") {
                 $inptype = "text";
             }
@@ -856,8 +862,8 @@ for ($i = 0; $i < count($form_elements); $i++) {
             $formoutput[] = '
               ' . $SEL->out() . '<br /></div>';
             break;
-        case "zeit":
-        case "time":
+        
+        case "timeselect":
             $req                                                         = ($element[2] == 1) ? $formreq : '';
             // STUNDEN
             $AFE[$i . '_h']                                              = $element;
