@@ -7,6 +7,10 @@ Formulargenerator für Redaxo CMS
 Es handelt sich hierbei um eine kostenlose und frei verwendbare Version, entsprechend der Lizenz Ihrer Redaxo-Installation. Eine Garantie oder Gewährleistung auf Funktionalität und Fehlerfreiheit wird nicht geleistet. Die KLXM Crossmedia haftet nicht für eventuell auftretenden Datenverlust. Bei Problemen, wenden Sie sich bitte an das Redaxo-Forum. 
 Javascripte und CSS-Definitionen sind nicht Bestandteil der freien Version.
 
+Über eine Erwähnung im Impressum würden wir uns sehr freuen. 
+
+z.B. Redaxo-Modul: do form!, Werbeagentur KLXM Crossmedia GmbH, www.klxm.de
+
 Homepage: http://klxm.de/produkte/redaxo-do-form/
 
 Imressum: http://klxm.de/impressum/
