@@ -554,7 +554,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 $valid_ok = FALSE;
                             }
                             break;
-                        //Namens-Prüfung bestimmte Zeichen sind nicht erlaubt 05.01.2010
                         case "name":
                             if (preg_match("/^[^;,@%:_#+*'!\"§$\/()=?]+$/i", $inhalt)) {
                                 break;
@@ -562,12 +561,10 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 $valid_ok = FALSE;
                             }
                             break;
-                        //Nur Zahlen
                         case "digit":
                             if (!ctype_digit($inhalt))
                                 $valid_ok = FALSE;
                             break;
-                        //Nur Buchstaben
                         case "alpha":
                             if (!ctype_alpha($inhalt))
                                 $valid_ok = FALSE;
