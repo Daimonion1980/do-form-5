@@ -11,6 +11,9 @@ Homepage: http://klxm.de/produkte/redaxo-do-form/
 
 Imressum: http://klxm.de/impressum/
 
+![](<screenshot.png>)
+
+
 ### Neu in Version 5.0 
 
 Diese Version sollte nicht als Ersatz für do form! 4 eingesetzt werden.
