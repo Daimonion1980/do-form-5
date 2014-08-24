@@ -493,8 +493,12 @@ for ($i = 0; $i < count($form_elements); $i++) {
                     $element[3] = rex_get($get[1]);
                 }
                 if ($element[3] == "today") {
-                    $element[3] = date("d.m.Y");
+                    $element[3] = $formdatum;
                 }
+                 if ($element[3] == "now") {
+                    $element[3] = $formzeit;
+                }
+                
                 $FORM[$formname]["el_" . $i] = trim($element[3]);
             }
             if (isset($element[2]) && $element[2] == 1 && (trim($FORM[$formname]["el_" . $i]) == "" || trim($FORM[$formname]["el_" . $i]) == trim($element[3])) && $FORM[$formname][$formname . "send"] == 1) {
