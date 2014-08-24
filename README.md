@@ -4,6 +4,8 @@ redaxo do form! 5
 Formulargenerator für Redaxo CMS
 --------------------------------
 
+Es handelt sich hierbei um eine kostenlose und frei verwendbare Version, entsprechend der Lizenz Ihrer Redaxo-Installation. Eine Garantie oder Gewährleistung auf Funktionalität und Fehlerfreiheit wird nicht geleistet. Die KLXM Crossmedia haftet nicht für eventuell auftretenden Datenverlust. Bei Problemen, wenden Sie sich bitte an das Redaxo-Forum. 
+Javascripte und CSS-Definitionen sind nicht Bestandteil der freien Version.
 
 
 ### Neu in Version 5.0 
