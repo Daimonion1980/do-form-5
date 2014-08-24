@@ -608,7 +608,13 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 $valid_ok = FALSE;
                                 break;
                             }
+                             break;
+                         case "time":   
+                            if( !(bool)preg_match('/^(?:2[0-3]||(([0-9]||0[0-9])||1[0-9])):[0-5][0-9]$/', trim($inhalt)) ) {
+								$valid_ok = FALSE;
+                                break;}
                             break;
+
                         case "bic":
                             if (preg_match("#^[a-zA-Z]{6}[a-zA-Z0-9]{2,5}$#", $inhalt)) {
                                 break;
