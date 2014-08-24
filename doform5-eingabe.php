@@ -119,8 +119,10 @@ function convertBytes( $value ) {
         border: 1px solid #999;
 }
 .doform  .inp100 {
-        background-color: #eeeeee;
-        border: 1px solid #CCC;
+	background-color: #333333;
+	border: 1px solid #CCC;
+	width: 90%;
+	color: rgba(255,255,255,1);
 }
  
 .formbg {
@@ -306,7 +308,7 @@ else { echo' <div class="formgenerror"> PHPMailer wurde nicht gefunden oder ist 
       <input type="text" name="VALUE[7]" value="REX_VALUE[7]" class="inp100" />
       <br />
       <br />
-    HTML-MAIL<span class="infotext"> 
+    HTML-E-Mail<span class="infotext"> 
 <select   name="VALUE[12]">
   <option value='ja' <?php if ("REX_VALUE[12]" == 'ja') echo 'selected'; ?>>ja</option>
   <option value='nein' <?php if ("REX_VALUE[12]" == 'nein') echo 'selected'; ?>>nein</option >
@@ -327,9 +329,8 @@ else { echo' <div class="formgenerror"> PHPMailer wurde nicht gefunden oder ist 
  
  
     </span>
-   <div class="infotext">(<em>ssldomain muss in der Modul-Ausgabe definiert sein</em></div>
-   )
-    <?php } ?>   
+   <div class="infotext">(<em>ssldomain muss in der Modul-Ausgabe definiert sein</em>)</div>
+   <?php } ?>   
   </div>
   <div class="doleft"><strong>E-Mail geht an:</strong><br />
     <input type="email" name="VALUE[1]" value="REX_VALUE[1]" class="inp100" />
@@ -467,7 +468,7 @@ upload|Upload JPG|0||jpg;jpeg;gif||0.5m
   klxm do form! 4.x basiert auf den in Redaxo 3.2 mitgelieferten Formular-Generator.<br />
    Beim ersten Aufruf erstellt das Modul eine Konfiguration für ein Standard-Kontaktformular. <br/>
      Im Beispiel-Formular sehen Sie Möglichkeiten zur Konfiguration. <br/>
-<a href="http://wiki.redaxo.de/index.php?n=R4.DoForm" target="_blank">Eine ausf&uuml;hrliche Anleitung finden Sie im REDAXO Wiki.</a><br />
+<a href="https://github.com/skerbis/do-form-5" target="_blank">Eine ausf&uuml;hrliche Anleitung.</a><br />
      <br />
 <strong>Empfehlung:</strong><br />
      Wir empfehlen im PHP-Mailer die Einstellung SMTP-AUTH zu verwenden. 
@@ -483,6 +484,10 @@ upload|Upload JPG|0||jpg;jpeg;gif||0.5m
       <ul>
         <li>alpha (nur engl.Buchstaben) </li>
         <li>url (URL)</li>
+        <li>date</li>
+        <li>time</li>
+        <li>IBAN</li>
+        <li>BIC</li>
         <li>digit (nur Zahlen)</li>
         <li>plz (5 Zahlen)</li>
         <li>plz4 (4 Zahlen)</li>
