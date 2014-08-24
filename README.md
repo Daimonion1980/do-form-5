@@ -11,6 +11,8 @@ Homepage: http://klxm.de/produkte/redaxo-do-form/
 
 Imressum: http://klxm.de/impressum/
 
+WIKI: https://github.com/skerbis/do-form-5/wiki
+
 Screenshot
 
 ![](<screenshot_.png>)
