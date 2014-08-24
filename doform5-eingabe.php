@@ -218,20 +218,20 @@ function convertBytes( $value ) {
 	padding-right: 10px;
 	padding-bottom: 15px;
 	padding-left: 10px;
-	color: #DFE7DF;
+	color: #FFFFFF;
 }
 .formnavi a {
-        border-bottom-width: 3px;
-        border-bottom-style: solid;
-        border-bottom-color: #333;
-        padding: 0.3em;
-        color: #FFF;
-        font-weight: bold;
-        text-decoration: none;
-        margin-right: 0.5em;
-        font-family: Tahoma, Geneva, sans-serif;
-        margin-left: 0em;
-        font-size: 1.2em;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #FFF;
+	padding: 0.3em;
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: none;
+	margin-right: 0.5em;
+	font-family: Tahoma, Geneva, sans-serif;
+	margin-left: 0em;
+	font-size: 1.2em;
 }
 .doleftdoc {
         float: left;
@@ -286,7 +286,7 @@ function doIt(theValue)
 </script>
  
  
-<div class="formnavi"><a href="https://github.com/skerbis/do-form-5/wiki" target="_blank">WIKI</a><a href="#anleitung" id="anzeige" onclick="javascript:document.getElementById('anleitung').style.display = 'block'" >Beispiel-einblenden </a> do form! - Version: <?php echo $doformversion; ?>&nbsp;|   <?php echo $REX['LANG']; ?></div>
+<div class="formnavi"><a href="https://github.com/skerbis/do-form-5/wiki" target="_blank">WIKI</a><a href="#anleitung" id="anzeige" onclick="javascript:document.getElementById('anleitung').style.display = 'block'" >Beispiel-einblenden </a> do form! - Version: <?php echo $doformversion; ?>&nbsp;</div>
 <br/><?php $phpmcheck= OOAddon::isActivated('phpmailer'); 
 if ($phpmcheck == 1)
 {}
@@ -465,7 +465,7 @@ upload|Upload JPG|0||jpg;jpeg;gif||0.5m
     <br/>
   </div>
   <div class="formgenheadline">Kurzbeschreibung:</div>
-  klxm do form! 4.x basiert auf den in Redaxo 3.2 mitgelieferten Formular-Generator.<br />
+  klxm do form! 5.x basiert auf den in Redaxo 3.2 mitgelieferten Formular-Generator.<br />
    Beim ersten Aufruf erstellt das Modul eine Konfiguration für ein Standard-Kontaktformular. <br/>
      Im Beispiel-Formular sehen Sie Möglichkeiten zur Konfiguration. <br/>
 <a href="https://github.com/skerbis/do-form-5" target="_blank">Eine ausf&uuml;hrliche Anleitung.</a><br />
