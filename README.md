@@ -13,6 +13,10 @@ Imressum: http://klxm.de/impressum/
 
 WIKI: https://github.com/skerbis/do-form-5/wiki
 
+FAQ: https://github.com/skerbis/do-form-5/wiki/FAQ
+
+
+
 Screenshot
 
 ![](<screenshot_.png>)
