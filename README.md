@@ -11,7 +11,7 @@ Homepage: http://klxm.de/produkte/redaxo-do-form/
 
 Imressum: http://klxm.de/impressum/
 
-![](<screenshot.png>)
+![](<screenshot_.png>)
 
 
 ### Neu in Version 5.0 
