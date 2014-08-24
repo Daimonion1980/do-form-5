@@ -350,7 +350,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
     }
     switch ($element[0]) {
         case "svar":
-        case "sessionvar":
             $formoutput[] = '
           <input type="hidden" title="' . $element[1] . '" name="FORM[' . $formname . '][el_' . $i . ']" id="el_' . $i . '" value="' . $_SESSION["REX_VALUE[16]"] . '" />';
             break;
@@ -368,7 +367,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
             $formoutput[] = '<div class="formlink"><a href="' . $element[1] . '" onclick="window.open(this.href); return false;">' . $element[2] . '</a></div>';
             break;
         case "ilink":
-        case "ilink2":
             if ($element[3] != "") {
                 $linkclass = 'class="' . $element[3] . '" ';
             } else {
