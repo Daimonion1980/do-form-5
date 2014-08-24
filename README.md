@@ -21,7 +21,7 @@ FAQ: https://github.com/skerbis/do-form-5/wiki/FAQ
 
 
 
-Screenshot
+**Screenshot**
 
 ![](<screenshot_.png>)
 
