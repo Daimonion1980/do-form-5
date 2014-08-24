@@ -378,7 +378,7 @@ else { echo' <div class="formgenerror"> PHPMailer wurde nicht gefunden oder ist 
     <span class="infotext">z.B.: Warenkorb,  nur für Session-Variablen erlaubte Zeichen, erntspricht: $_SESSION[&quot;Warenkorb&quot;]</span></div>
     <div class="doleft">
       <p><em><strong>Info</strong> Die Variable wird nach dem Versenden zurückgesetzt</em></p>
-      <p>Beispiel: Einsatz per <strong>sessionvar|Warenkorb</strong></p>
+      <p>Beispiel: Einsatz per <strong>svar|Warenkorb</strong></p>
     </div>
     <div style="clear:both">Es handelt sich hierbei um ein hidden field. Eine Ausgabe muss ggf. selbst erstellt werden.</div>
   </div>
