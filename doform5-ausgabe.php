@@ -556,10 +556,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                             break;
                         //Namens-Prüfung bestimmte Zeichen sind nicht erlaubt 05.01.2010
                         case "name":
-                        case "fname":
-                        case "sname":
-                        case "letters":
-                            if (preg_match("/^[^;,@%:._#+*'!\"§$\/()=?]+$/i", $inhalt)) {
+                            if (preg_match("/^[^;,@%:_#+*'!\"§$\/()=?]+$/i", $inhalt)) {
                                 break;
                             } else {
                                 $valid_ok = FALSE;
