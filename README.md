@@ -50,6 +50,7 @@ Beispiele der neuen Felder:
 `BIC|BIC|1|||bic `
 
 `date|Datum der Meldung|1|today||date `
+
 `time|Uhrzeit|1|now||date `
 
 (Wird kein default-value eingegeben, werden entsprechende Placeholder in
