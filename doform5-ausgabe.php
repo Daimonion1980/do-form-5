@@ -674,7 +674,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
             }
             if ($element[0] == "time") {
                 $placeholder = ' placeholder="hh:mm"';
-                $inptype     = "date";
+                $inptype     = "time";
             }
             
             if ($element[0] == "text") {
