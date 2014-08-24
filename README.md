@@ -34,9 +34,9 @@ Diese Version sollte nicht als Ersatz für do form! 4 eingesetzt werden.
     erweitert, entsprechend Modul Nr. 653, zusätzlich mit Anrede-Erkennung für
     die Bestätigungsmail
 
--   Date-Feld wurde durch HTML5-Date-Feld ersetzt. Dadurch können die nativen
+-   Das Date- und Time-Feld wurde durch HTML5-Date/Time-Feld ersetzt. Dadurch können die nativen
     Kalender-Widgets verwendet werden. Fallback per Jquery-Datepicker
-    empfehlenswert. Durch den Parameter today, kann das aktuelle Datum
+    empfehlenswert. Durch ddie Parameter today und now, kann das aktuelle Datum oder Uhrzeit
     vorausgewählt werden.
 
 -   Das alte date-Feld heißt jetzt dateselect. xdate wurde entfernt.  
@@ -50,6 +50,7 @@ Beispiele der neuen Felder:
 `BIC|BIC|1|||bic `
 
 `date|Datum der Meldung|1|today||date `
+`time|Uhrzeit|1|now||date `
 
 (Wird kein default-value eingegeben, werden entsprechende Placeholder in
 modernen Browsern dargestellt)
