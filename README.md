@@ -4,13 +4,6 @@ redaxo do form! 5
 Formulargenerator für Redaxo CMS
 --------------------------------
 
-[Ausführliche Infos][1]
-
-[1]: <http://klxm.de/produkte/>
-
-[Wiki][2]
-
-[2]: <http://www.redaxo.org/de/wiki/index.php?n=R4.DoForm>
 
 
 ### Neu in Version 5.0 
