@@ -4,7 +4,7 @@
  * REDAXO-Modul: do form!
  * Bereich: Eingabe 
  */
-$doformversion="5.0";
+$doformversion="5.0.1";
  /**
  * ab Redaxo Version: 4.5
  * Module-id: 572
