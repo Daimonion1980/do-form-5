@@ -19,30 +19,7 @@ $doformversion="5.0";
  * Ursprung: Formular-Generator Redaxo 3.2 Demo, do form! 2
  * Typ: Modifikation / Erweiterung  
  *=============================================
- * 
- * VALUE[1] - E-Mail geht an 
- * VALUE[2] - (Ihre) Absenderadresse fuer die Bestaetigungs-E-Mail 
- * VALUE[3] - Formularfelder 
- * VALUE[4] - Betreff 
- * VALUE[5] - E-Mail-Bestaetigungstext 
- * VALUE[6] - TinyMCE 
- * VALUE[7] - Bezeichnung fuer Senden-Button 
- * VALUE[8] - Absender-Name 
- * VALUE[9] -  frei
- * VALUE[10] - Soll eine Bestaetigungs-E-Mail erstellt werden? 
- * VALUE[11] - BCC an 
- * VALUE[12] - HTML-EMAIL JA /NEIN
- * VALUE[13] - Original anhaengen? JA / NEIN
- * VALUE[14] - Uploadordner
- * VALUE[15] - Upload als Mail versenden
- * VALUE[16] - Bezeichner der Session-Variable
- * VALUE[17] - Bestätigungsbetreff
- * VALUE[18] - SSL-Schalter (JA/NEIN)
- * VALUE[19] - frei
- * VALUE[20] - frei
- * REX_FILE[1] - Dateianhang an Absender (z.B. AGB) 
- * 
- */
+
 // EINGABE EINSTELLUNGEN
 // zur Vereinfachung der Eingabemaske
 // Erweiterte Funktionen in der Moduleingabe freischalten 
