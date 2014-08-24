@@ -8,6 +8,7 @@ Es handelt sich hierbei um eine kostenlose und frei verwendbare Version, entspre
 Javascripte und CSS-Definitionen sind nicht Bestandteil der freien Version.
 
 Homepage: http://klxm.de/produkte/redaxo-do-form/
+Imressum: http://klxm.de/impressum/
 
 ### Neu in Version 5.0 
 
