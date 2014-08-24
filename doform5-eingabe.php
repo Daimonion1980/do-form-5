@@ -15,7 +15,7 @@ $doformversion="5.0";
  * Formulargenerator für PHPMAILER
  * Required Addons: TinyMCE, PHPMAiler
  * 
- * Datum: 22.08.2014
+ * Datum: 24.08.2014
  * Ursprung: Formular-Generator Redaxo 3.2 Demo, do form! 2
  * Typ: Modifikation / Erweiterung  
  *=============================================
