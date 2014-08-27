@@ -1175,7 +1175,7 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
             if ($k != $formname . 'submit' && $k != $formname . 'send' && (!isset($AFE[$key][5]) || $AFE[$key][5] != 'captcha') && stripslashes($v) != '' && isset($AFE[$key][1]) && !in_array($AFE[$key][0], $ignore)) {
                 $v  = strip_tags($v);
                 $v  = stripslashes($v);
-                $v2 = substr($v, 0, -5) . 'XXXXX';
+                $v2 = substr($v, 0, -5) . '*****';
                 switch ($AFE[$key][0]) {
                     case "BIC":
                         $mailbodyhtml .= '<span class="slabel">' . $fcounter . '. ' . $AFE[$key][1] . ": </span>" . strtoupper($v) . '<br />';
