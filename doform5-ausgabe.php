@@ -248,6 +248,12 @@ if (!function_exists('file_upload_error_message')) {
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> FETCH_HEAD
 if (!function_exists('getValidIban')) {
     function getValidIban($iban)
     {
@@ -268,6 +274,12 @@ if (!function_exists('getValidIban')) {
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> FETCH_HEAD
 /**
  * Convert a shorthand byte value from a PHP configuration directive to an integer value
  * @param    string   $value
@@ -609,7 +621,11 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 break;
                             } else {
                                 $valid_ok = FALSE;
+<<<<<<< HEAD
                                 break;
+=======
+								 break;
+>>>>>>> FETCH_HEAD
                             }
                             break;
                         // legt das zu per check zu prüfende Feld fest
@@ -618,7 +634,11 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 break;
                             } else {
                                 $valid_ok = FALSE;
+<<<<<<< HEAD
                                 break;
+=======
+								 break;
+>>>>>>> FETCH_HEAD
                             }
                             break;
                         case "date":
@@ -1218,7 +1238,7 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
             if ($k != $formname . 'submit' && $k != $formname . 'send' && (!isset($AFE[$key][5]) || $AFE[$key][5] != 'captcha') && stripslashes($v) != '' && isset($AFE[$key][1]) && !in_array($AFE[$key][0], $ignore)) {
                 $v  = strip_tags($v);
                 $v  = stripslashes($v);
-                $v2 = substr($v, 0, -5) . 'XXXXX';
+                $v2 = substr($v, 0, -5) . '*****';
                 switch ($AFE[$key][0]) {
                     case "BIC":
                         $mailbodyhtml .= '<span class="slabel">' . $fcounter . '. ' . $AFE[$key][1] . ": </span>" . strtoupper($v) . '<br />';
@@ -1334,4 +1354,13 @@ if ($warning_set) {
         print $out;
     }
 }
+<<<<<<< HEAD
 ?>
+=======
+
+
+
+
+
+?>
+>>>>>>> FETCH_HEAD

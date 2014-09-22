@@ -26,7 +26,7 @@ FAQ: https://github.com/skerbis/do-form-5/wiki/FAQ
 ![](<screenshot_.png>)
 
 
-### Neu in Version 5.0 
+### Neu in Version 5.0.1 
 
 Diese Version sollte nicht als Ersatz für do form! 4 eingesetzt werden.
 
