@@ -2,10 +2,10 @@
 /**==================================================
  * REDAXO-Modul: do form!  http://klxm.de/produkte/
  * Bereich: Ausgabe
- * Version: 5.0.1 , Datum: 24.08.2014
+ * Version: 5.0.2 , Datum: 22.09.2014
  *==================================================*/
 //   KONFIGURATION
-$ftitel                      = '<strong>doform! Nachricht</strong>: REX_VALUE[4]'; // Überschrift / Betreff der HTML-E-Mail
+$ftitel                      = '<strong>Webformular:</strong>: REX_VALUE[4]'; // Überschrift / Betreff der HTML-E-Mail
 $ssldomain                   = 'domain.tld'; // SSl-Domain ohne https://, kein Slash am Ende 
 $style                       = 'class="formerror"'; // Label-Stildefinition für Fehler
 $bstyle                      = 'formerror'; // Formfield-Fehler-Klasse
@@ -25,8 +25,16 @@ $uploadpfad_mit_mailschicken = true; // Bei E-Mail-Anhängen
 $frommode                    = true; // Standard=true
 // Welche Felder sollen nicht in der E-Mail  übertragen werden?
 $ignore                      = array(
-    'captcha','sicherheitscode','ilink','ilink2','divstart','divend','fieldend','info','exlink');
-// =============================================
+    'captcha',
+    'sicherheitscode',
+    'ilink',
+    'ilink2',
+    'divstart',
+    'divend',
+    'fieldend',
+    'info',
+    'exlink'
+);
 //  Captcha
 // ============================================= 
 $captchaID                   = 000; // ID zum Captcha-Artikel der das Captcha-Template nutzt
@@ -69,9 +77,7 @@ Controleer uw gegevens.
 EOD;
     $frel   = "<br />You have tried to reload this page. Your message has been already sent.";
 }
-// =============================================
 //  Vorlage für HTML-Mail
-// ============================================= 
 // HEADER
 $doformhtml       = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -82,7 +88,7 @@ $doformhtml       = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "h
 <!--
 body {
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 1.2em;
+        font-size: 1.3em;
         color: #003366;
         line-height: 1em;
         background-color: #F9F9F9;
@@ -134,14 +140,13 @@ br {
 <body>
 <div class="dfheader">
   ' . $ftitel . '
-</div>
+</div><br/>
 ';
 // footer
 $doformhtmlfooter = '<hr size="1" /><br />
-<br />KLXM do form!</body></html>';
-$nonhtmlfooter    = "\n----------------------------------\n KLXM do form!
+<br />KWW-Formular</body></html>';
+$nonhtmlfooter    = "\n----------------------------------\n http://www.kww-online.de!
  ";
-// =============================================
 // Ende der allgemeinen Konfiguration
 //=============================================
 $absendermail     = "";
@@ -162,7 +167,15 @@ if ('REX_VALUE[18]' == "SSL") {
         }
     }
 }
-
+if (!function_exists('is_old_android')) {
+    function is_old_android($version = '4.2.0')
+    {
+        if (strstr($_SERVER['HTTP_USER_AGENT'], 'Android')) {
+            preg_match('/Android (\d+(?:\.\d+)+)[;)]/', $_SERVER['HTTP_USER_AGENT'], $matches);
+            return version_compare($matches[1], $version, '<=');
+        }
+    }
+}
 /**
  * prueft ob die Mindestanzahl an Argumenten mit der Vorgabe uebereinstimmt
  * 
@@ -235,6 +248,26 @@ if (!function_exists('file_upload_error_message')) {
         }
     }
 }
+if (!function_exists('getValidIban')) {
+    function getValidIban($iban)
+    {
+        // normalize
+        $iban    = str_replace(array(
+            ' ',
+            '-',
+            '.',
+            ','
+        ), '', strtoupper($iban));
+        // define the pattern
+        $pattern = '#(?P<value>((?=[0-9A-Z]{28}$)AL\d{10}[0-9A-Z]{16}$|^(?=[0-9A-Z]{24}$)AD\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)AT\d{18}$|^(?=[0-9A-Z]{22}$)BH\d{2}[A-Z]{4}[0-9A-Z]{14}$|^(?=[0-9A-Z]{16}$)BE\d{14}$|^(?=[0-9A-Z]{20}$)BA\d{18}$|^(?=[0-9A-Z]{22}$)BG\d{2}[A-Z]{4}\d{6}[0-9A-Z]{8}$|^(?=[0-9A-Z]{21}$)HR\d{19}$|^(?=[0-9A-Z]{28}$)CY\d{10}[0-9A-Z]{16}$|^(?=[0-9A-Z]{24}$)CZ\d{22}$|^(?=[0-9A-Z]{18}$)DK\d{16}$|^FO\d{16}$|^GL\d{16}$|^(?=[0-9A-Z]{28}$)DO\d{2}[0-9A-Z]{4}\d{20}$|^(?=[0-9A-Z]{20}$)EE\d{18}$|^(?=[0-9A-Z]{18}$)FI\d{16}$|^(?=[0-9A-Z]{27}$)FR\d{12}[0-9A-Z]{11}\d{2}$|^(?=[0-9A-Z]{22}$)GE\d{2}[A-Z]{2}\d{16}$|^(?=[0-9A-Z]{22}$)DE\d{20}$|^(?=[0-9A-Z]{23}$)GI\d{2}[A-Z]{4}[0-9A-Z]{15}$|^(?=[0-9A-Z]{27}$)GR\d{9}[0-9A-Z]{16}$|^(?=[0-9A-Z]{28}$)HU\d{26}$|^(?=[0-9A-Z]{26}$)IS\d{24}$|^(?=[0-9A-Z]{22}$)IE\d{2}[A-Z]{4}\d{14}$|^(?=[0-9A-Z]{23}$)IL\d{21}$|^(?=[0-9A-Z]{27}$)IT\d{2}[A-Z]\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)[A-Z]{2}\d{5}[0-9A-Z]{13}$|^(?=[0-9A-Z]{30}$)KW\d{2}[A-Z]{4}22!$|^(?=[0-9A-Z]{21}$)LV\d{2}[A-Z]{4}[0-9A-Z]{13}$|^(?=[0-9A-Z]{,28}$)LB\d{6}[0-9A-Z]{20}$|^(?=[0-9A-Z]{21}$)LI\d{7}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)LT\d{18}$|^(?=[0-9A-Z]{20}$)LU\d{5}[0-9A-Z]{13}$|^(?=[0-9A-Z]{19}$)MK\d{5}[0-9A-Z]{10}\d{2}$|^(?=[0-9A-Z]{31}$)MT\d{2}[A-Z]{4}\d{5}[0-9A-Z]{18}$|^(?=[0-9A-Z]{27}$)MR13\d{23}$|^(?=[0-9A-Z]{30}$)MU\d{2}[A-Z]{4}\d{19}[A-Z]{3}$|^(?=[0-9A-Z]{27}$)MC\d{12}[0-9A-Z]{11}\d{2}$|^(?=[0-9A-Z]{22}$)ME\d{20}$|^(?=[0-9A-Z]{18}$)NL\d{2}[A-Z]{4}\d{10}$|^(?=[0-9A-Z]{15}$)NO\d{13}$|^(?=[0-9A-Z]{28}$)PL\d{10}[0-9A-Z]{,16}n$|^(?=[0-9A-Z]{25}$)PT\d{23}$|^(?=[0-9A-Z]{24}$)RO\d{2}[A-Z]{4}[0-9A-Z]{16}$|^(?=[0-9A-Z]{27}$)SM\d{2}[A-Z]\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{,24}$)SA\d{4}[0-9A-Z]{18}$|^(?=[0-9A-Z]{22}$)RS\d{20}$|^(?=[0-9A-Z]{24}$)SK\d{22}$|^(?=[0-9A-Z]{19}$)SI\d{17}$|^(?=[0-9A-Z]{24}$)ES\d{22}$|^(?=[0-9A-Z]{24}$)SE\d{22}$|^(?=[0-9A-Z]{21}$)CH\d{7}[0-9A-Z]{12}$|^(?=[0-9A-Z]{24}$)TN59\d{20}$|^(?=[0-9A-Z]{26}$)TR\d{7}[0-9A-Z]{17}$|^(?=[0-9A-Z]{,23}$)AE\d{21}$|^(?=[0-9A-Z]{22}$)GB\d{2}[A-Z]{4}\d{14}))#';
+        // check
+        if (preg_match($pattern, $iban, $matches)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
 /**
  * Convert a shorthand byte value from a PHP configuration directive to an integer value
  * @param    string   $value
@@ -282,10 +315,7 @@ $formoutput    = array();
 $warning       = array();
 $warning_set   = 0; // wird zu 1, wenn eine Fehler auftritt
 $form_elements = array();
-
 $form_elements = explode("\n", $rex_form_data);
-
-
 //Abfrage Felder Vor- und Nachname, 14.05.2014, Benedikt Marcard, Marcard Media, www.marcard-media.de
 for ($i = 0; $i < count($form_elements); $i++) {
     $element = explode("|", $form_elements[$i]);
@@ -495,10 +525,9 @@ for ($i = 0; $i < count($form_elements); $i++) {
                 if ($element[3] == "today") {
                     $element[3] = $formdatum;
                 }
-                 if ($element[3] == "now") {
+                if ($element[3] == "now") {
                     $element[3] = $formzeit;
                 }
-                
                 $FORM[$formname]["el_" . $i] = trim($element[3]);
             }
             if (isset($element[2]) && $element[2] == 1 && (trim($FORM[$formname]["el_" . $i]) == "" || trim($FORM[$formname]["el_" . $i]) == trim($element[3])) && $FORM[$formname][$formname . "send"] == 1) {
@@ -580,6 +609,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 break;
                             } else {
                                 $valid_ok = FALSE;
+                                break;
                             }
                             break;
                         // legt das zu per check zu prüfende Feld fest
@@ -588,6 +618,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 break;
                             } else {
                                 $valid_ok = FALSE;
+                                break;
                             }
                             break;
                         case "date":
@@ -606,13 +637,13 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 $valid_ok = FALSE;
                                 break;
                             }
-                             break;
-                         case "time":   
-                            if( !(bool)preg_match('/^(?:2[0-3]||(([0-9]||0[0-9])||1[0-9])):[0-5][0-9]$/', trim($inhalt)) ) {
-								$valid_ok = FALSE;
-                                break;}
                             break;
-
+                        case "time":
+                            if (!(bool) preg_match('/^(?:2[0-3]||(([0-9]||0[0-9])||1[0-9])):[0-5][0-9]$/', trim($inhalt))) {
+                                $valid_ok = FALSE;
+                                break;
+                            }
+                            break;
                         case "bic":
                             if (preg_match("#^[a-zA-Z]{6}[a-zA-Z0-9]{2,5}$#", $inhalt)) {
                                 break;
@@ -622,6 +653,44 @@ for ($i = 0; $i < count($form_elements); $i++) {
                             break;
                         case "checkfield":
                             if (preg_match("/[\w\p{L}]/u", $inhalt)) {
+                                $_SESSION["formcheck"] = $inhalt;
+                                break;
+                            } else {
+                                $valid_ok = FALSE;
+                            }
+                            break;
+                        case "kk":
+                            if (preg_match("/^[0-9]{5,6}$/", $inhalt)) {
+                                if ($element[5] == "kkcheck") {
+                                    $_SESSION["formcheck"] = $inhalt;
+                                    echo 'XXX' . $inhalt;
+                                }
+                                break;
+                            } else {
+                                $valid_ok = FALSE;
+                            }
+                            break;
+                        case "kk6":
+                            if (preg_match("/^[0-9]{6}$/", $inhalt)) {
+                                if ($element[5] == "kkcheck") {
+                                    $_SESSION["formcheck"] = $inhalt;
+                                    echo 'XXX' . $inhalt;
+                                }
+                                break;
+                            } else {
+                                $valid_ok = FALSE;
+                            }
+                            break;
+                        case "kkcheck":
+                            if (preg_match("/^[0-9]{5,6}$/", $inhalt)) {
+                                $_SESSION["formcheck"] = $inhalt;
+                                break;
+                            } else {
+                                $valid_ok = FALSE;
+                            }
+                            break;
+                        case "kkcheck6":
+                            if (preg_match("/^[0-9]{6}$/", $inhalt)) {
                                 $_SESSION["formcheck"] = $inhalt;
                                 break;
                             } else {
@@ -674,13 +743,16 @@ for ($i = 0; $i < count($form_elements); $i++) {
             }
             if ($element[0] == "date") {
                 $placeholder = ' placeholder="tt.mm.jjjj"';
-                $inptype     = "date";
+                if (is_old_android()) {
+                    $inptype = "text";
+                } else {
+                    $inptype = "date";
+                }
             }
             if ($element[0] == "time") {
                 $placeholder = ' placeholder="hh:mm"';
                 $inptype     = "time";
             }
-            
             if ($element[0] == "text") {
                 $inptype = "text";
             }
@@ -866,7 +938,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
             $formoutput[] = '
               ' . $SEL->out() . '<br /></div>';
             break;
-        
         case "timeselect":
             $req                                                         = ($element[2] == 1) ? $formreq : '';
             // STUNDEN
@@ -1076,7 +1147,7 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
     // END :: Uploadverarbeitung
     $_SESSION['token'] = $_POST['token'];
     unset($_SESSION["kcode"]); //Captcha-Variable zurücksetzen
-    unset($_SESSION["formcheck"]); // Vergleichsfeld festlegen
+    //   Vergleichsfeld festlegen
     // Selbsdefinierte Sessionvariable zurücksetzen 
     if ("REX_VALUE[16]" != "") {
         unset($_SESSION["REX_VALUE[16]"]);
@@ -1244,6 +1315,7 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
         }
     }
     // =================MAIL-RESPONDER-ENDE=========================
+    unset($_SESSION["formcheck"]); //
 ?>
 <div class="formthanks">REX_HTML_VALUE[6]</div>
  
@@ -1262,28 +1334,4 @@ if ($warning_set) {
         print $out;
     }
 }
-
-
-
-if (!function_exists('getValidIban')) {
-    function getValidIban($iban)
-    {
-        // normalize
-        $iban    = str_replace(array(
-            ' ',
-            '-',
-            '.',
-            ','
-        ), '', strtoupper($iban));
-        // define the pattern
-        $pattern = '#(?P<value>((?=[0-9A-Z]{28}$)AL\d{10}[0-9A-Z]{16}$|^(?=[0-9A-Z]{24}$)AD\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)AT\d{18}$|^(?=[0-9A-Z]{22}$)BH\d{2}[A-Z]{4}[0-9A-Z]{14}$|^(?=[0-9A-Z]{16}$)BE\d{14}$|^(?=[0-9A-Z]{20}$)BA\d{18}$|^(?=[0-9A-Z]{22}$)BG\d{2}[A-Z]{4}\d{6}[0-9A-Z]{8}$|^(?=[0-9A-Z]{21}$)HR\d{19}$|^(?=[0-9A-Z]{28}$)CY\d{10}[0-9A-Z]{16}$|^(?=[0-9A-Z]{24}$)CZ\d{22}$|^(?=[0-9A-Z]{18}$)DK\d{16}$|^FO\d{16}$|^GL\d{16}$|^(?=[0-9A-Z]{28}$)DO\d{2}[0-9A-Z]{4}\d{20}$|^(?=[0-9A-Z]{20}$)EE\d{18}$|^(?=[0-9A-Z]{18}$)FI\d{16}$|^(?=[0-9A-Z]{27}$)FR\d{12}[0-9A-Z]{11}\d{2}$|^(?=[0-9A-Z]{22}$)GE\d{2}[A-Z]{2}\d{16}$|^(?=[0-9A-Z]{22}$)DE\d{20}$|^(?=[0-9A-Z]{23}$)GI\d{2}[A-Z]{4}[0-9A-Z]{15}$|^(?=[0-9A-Z]{27}$)GR\d{9}[0-9A-Z]{16}$|^(?=[0-9A-Z]{28}$)HU\d{26}$|^(?=[0-9A-Z]{26}$)IS\d{24}$|^(?=[0-9A-Z]{22}$)IE\d{2}[A-Z]{4}\d{14}$|^(?=[0-9A-Z]{23}$)IL\d{21}$|^(?=[0-9A-Z]{27}$)IT\d{2}[A-Z]\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)[A-Z]{2}\d{5}[0-9A-Z]{13}$|^(?=[0-9A-Z]{30}$)KW\d{2}[A-Z]{4}22!$|^(?=[0-9A-Z]{21}$)LV\d{2}[A-Z]{4}[0-9A-Z]{13}$|^(?=[0-9A-Z]{,28}$)LB\d{6}[0-9A-Z]{20}$|^(?=[0-9A-Z]{21}$)LI\d{7}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)LT\d{18}$|^(?=[0-9A-Z]{20}$)LU\d{5}[0-9A-Z]{13}$|^(?=[0-9A-Z]{19}$)MK\d{5}[0-9A-Z]{10}\d{2}$|^(?=[0-9A-Z]{31}$)MT\d{2}[A-Z]{4}\d{5}[0-9A-Z]{18}$|^(?=[0-9A-Z]{27}$)MR13\d{23}$|^(?=[0-9A-Z]{30}$)MU\d{2}[A-Z]{4}\d{19}[A-Z]{3}$|^(?=[0-9A-Z]{27}$)MC\d{12}[0-9A-Z]{11}\d{2}$|^(?=[0-9A-Z]{22}$)ME\d{20}$|^(?=[0-9A-Z]{18}$)NL\d{2}[A-Z]{4}\d{10}$|^(?=[0-9A-Z]{15}$)NO\d{13}$|^(?=[0-9A-Z]{28}$)PL\d{10}[0-9A-Z]{,16}n$|^(?=[0-9A-Z]{25}$)PT\d{23}$|^(?=[0-9A-Z]{24}$)RO\d{2}[A-Z]{4}[0-9A-Z]{16}$|^(?=[0-9A-Z]{27}$)SM\d{2}[A-Z]\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{,24}$)SA\d{4}[0-9A-Z]{18}$|^(?=[0-9A-Z]{22}$)RS\d{20}$|^(?=[0-9A-Z]{24}$)SK\d{22}$|^(?=[0-9A-Z]{19}$)SI\d{17}$|^(?=[0-9A-Z]{24}$)ES\d{22}$|^(?=[0-9A-Z]{24}$)SE\d{22}$|^(?=[0-9A-Z]{21}$)CH\d{7}[0-9A-Z]{12}$|^(?=[0-9A-Z]{24}$)TN59\d{20}$|^(?=[0-9A-Z]{26}$)TR\d{7}[0-9A-Z]{17}$|^(?=[0-9A-Z]{,23}$)AE\d{21}$|^(?=[0-9A-Z]{22}$)GB\d{2}[A-Z]{4}\d{14}))#';
-        // check
-        if (preg_match($pattern, $iban, $matches)) {
-            return $matches['value'];
-        } else {
-            return false;
-        }
-    }
-}
-
 ?>
