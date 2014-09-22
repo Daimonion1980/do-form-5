@@ -24,23 +24,13 @@ $uploadpfad_mit_mailschicken = true; // Bei E-Mail-Anhängen
 // Bei false wird der Absender der im PHPMailer-Addon hinterlegt wurde übernommen
 $frommode                    = true; // Standard=true
 // Welche Felder sollen nicht in der E-Mail  übertragen werden?
-$ignore                      = array(
-    'captcha',
-    'sicherheitscode',
-    'ilink',
-    'ilink2',
-    'divstart',
-    'divend',
-    'fieldend',
-    'info',
-    'exlink'
+$ignore                      = array('captcha','sicherheitscode','ilink','ilink2','divstart','divend','fieldend','info','exlink'
 );
 //  Captcha
 // ============================================= 
 $captchaID                   = 000; // ID zum Captcha-Artikel der das Captcha-Template nutzt
 $captchasource               = htmlspecialchars(rex_getUrl($captchaID));
-// Alternative: Externe Einbindung eines Captchas
-// $captchasource="/redaxo/captcha/captcha.php";
+// Alternative: Externe Einbindung eines Captchas: $captchasource="/redaxo/captcha/captcha.php";
 // Mehr Infos unter: http://www.redaxo.org/de/wiki/index.php?n=R4.Formulargenerator-Tipps
 // =============================================
 //  Fehlermeldungen / Mehrsprachig
