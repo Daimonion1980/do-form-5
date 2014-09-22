@@ -24,13 +24,15 @@ $uploadpfad_mit_mailschicken = true; // Bei E-Mail-Anhängen
 // Bei false wird der Absender der im PHPMailer-Addon hinterlegt wurde übernommen
 $frommode                    = true; // Standard=true
 // Welche Felder sollen nicht in der E-Mail  übertragen werden?
-$ignore                      = array('captcha','sicherheitscode','ilink','ilink2','divstart','divend','fieldend','info','exlink'
-);
+$ignore                      = array(
+    'captcha','sicherheitscode','ilink','ilink2','divstart','divend','fieldend','info','exlink');
+// =============================================
 //  Captcha
 // ============================================= 
 $captchaID                   = 000; // ID zum Captcha-Artikel der das Captcha-Template nutzt
 $captchasource               = htmlspecialchars(rex_getUrl($captchaID));
-// Alternative: Externe Einbindung eines Captchas: $captchasource="/redaxo/captcha/captcha.php";
+// Alternative: Externe Einbindung eines Captchas
+// $captchasource="/redaxo/captcha/captcha.php";
 // Mehr Infos unter: http://www.redaxo.org/de/wiki/index.php?n=R4.Formulargenerator-Tipps
 // =============================================
 //  Fehlermeldungen / Mehrsprachig
@@ -137,6 +139,7 @@ $doformhtmlfooter = '<hr size="1" /><br />
 <br />KWW-Formular</body></html>';
 $nonhtmlfooter    = "\n----------------------------------\n http://www.kww-online.de!
  ";
+// =============================================
 // Ende der allgemeinen Konfiguration
 //=============================================
 $absendermail     = "";
@@ -157,15 +160,22 @@ if ('REX_VALUE[18]' == "SSL") {
         }
     }
 }
+
 if (!function_exists('is_old_android')) {
-    function is_old_android($version = '4.2.0')
-    {
-        if (strstr($_SERVER['HTTP_USER_AGENT'], 'Android')) {
-            preg_match('/Android (\d+(?:\.\d+)+)[;)]/', $_SERVER['HTTP_USER_AGENT'], $matches);
-            return version_compare($matches[1], $version, '<=');
-        }
-    }
+function is_old_android($version = '4.2.0'){
+ 
+	if(strstr($_SERVER['HTTP_USER_AGENT'], 'Android')){
+		
+		preg_match('/Android (\d+(?:\.\d+)+)[;)]/', $_SERVER['HTTP_USER_AGENT'], $matches);
+ 
+		return version_compare($matches[1], $version, '<=');
+ 
+	}
+ 
 }
+}
+
+
 /**
  * prueft ob die Mindestanzahl an Argumenten mit der Vorgabe uebereinstimmt
  * 
@@ -177,6 +187,7 @@ if (!function_exists('is_old_android')) {
  * @param string  $formelement - Name des Elementes in dem der Check ausgefuehrt wird
  * @return string
  */
+ 
 if (!function_exists('doform_checkElements')) {
     function doform_checkElements($mustHave, $elements, $formelement)
     {
@@ -238,12 +249,9 @@ if (!function_exists('file_upload_error_message')) {
         }
     }
 }
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> FETCH_HEAD
 if (!function_exists('getValidIban')) {
     function getValidIban($iban)
     {
@@ -264,12 +272,9 @@ if (!function_exists('getValidIban')) {
         }
     }
 }
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> FETCH_HEAD
 /**
  * Convert a shorthand byte value from a PHP configuration directive to an integer value
  * @param    string   $value
@@ -317,7 +322,10 @@ $formoutput    = array();
 $warning       = array();
 $warning_set   = 0; // wird zu 1, wenn eine Fehler auftritt
 $form_elements = array();
+
 $form_elements = explode("\n", $rex_form_data);
+
+
 //Abfrage Felder Vor- und Nachname, 14.05.2014, Benedikt Marcard, Marcard Media, www.marcard-media.de
 for ($i = 0; $i < count($form_elements); $i++) {
     $element = explode("|", $form_elements[$i]);
@@ -527,9 +535,10 @@ for ($i = 0; $i < count($form_elements); $i++) {
                 if ($element[3] == "today") {
                     $element[3] = $formdatum;
                 }
-                if ($element[3] == "now") {
+                 if ($element[3] == "now") {
                     $element[3] = $formzeit;
                 }
+                
                 $FORM[$formname]["el_" . $i] = trim($element[3]);
             }
             if (isset($element[2]) && $element[2] == 1 && (trim($FORM[$formname]["el_" . $i]) == "" || trim($FORM[$formname]["el_" . $i]) == trim($element[3])) && $FORM[$formname][$formname . "send"] == 1) {
@@ -582,6 +591,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 $valid_ok = FALSE;
                             }
                             break;
+	
                         case "plz4":
                             if (preg_match("/^[0-9]{4}$/", $inhalt)) {
                                 break;
@@ -611,11 +621,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 break;
                             } else {
                                 $valid_ok = FALSE;
-<<<<<<< HEAD
-                                break;
-=======
 								 break;
->>>>>>> FETCH_HEAD
                             }
                             break;
                         // legt das zu per check zu prüfende Feld fest
@@ -624,11 +630,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 break;
                             } else {
                                 $valid_ok = FALSE;
-<<<<<<< HEAD
-                                break;
-=======
 								 break;
->>>>>>> FETCH_HEAD
                             }
                             break;
                         case "date":
@@ -647,13 +649,13 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 $valid_ok = FALSE;
                                 break;
                             }
+                             break;
+                         case "time":   
+                            if( !(bool)preg_match('/^(?:2[0-3]||(([0-9]||0[0-9])||1[0-9])):[0-5][0-9]$/', trim($inhalt)) ) {
+								$valid_ok = FALSE;
+                                break;}
                             break;
-                        case "time":
-                            if (!(bool) preg_match('/^(?:2[0-3]||(([0-9]||0[0-9])||1[0-9])):[0-5][0-9]$/', trim($inhalt))) {
-                                $valid_ok = FALSE;
-                                break;
-                            }
-                            break;
+
                         case "bic":
                             if (preg_match("#^[a-zA-Z]{6}[a-zA-Z0-9]{2,5}$#", $inhalt)) {
                                 break;
@@ -669,44 +671,70 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 $valid_ok = FALSE;
                             }
                             break;
-                        case "kk":
+                        
+                        
+						 case "kk":
                             if (preg_match("/^[0-9]{5,6}$/", $inhalt)) {
-                                if ($element[5] == "kkcheck") {
+                              
+                               if ($element[5] == "kkcheck") {
                                     $_SESSION["formcheck"] = $inhalt;
-                                    echo 'XXX' . $inhalt;
+                                    echo 'XXX'.$inhalt;
                                 }
+                              
+                              
                                 break;
                             } else {
                                 $valid_ok = FALSE;
                             }
                             break;
-                        case "kk6":
+                            
+                            
+                          case "kk6":
                             if (preg_match("/^[0-9]{6}$/", $inhalt)) {
-                                if ($element[5] == "kkcheck") {
+                              
+                               if ($element[5] == "kkcheck") {
                                     $_SESSION["formcheck"] = $inhalt;
-                                    echo 'XXX' . $inhalt;
+                                    echo 'XXX'.$inhalt;
                                 }
+                              
+                              
+                                break;
+                            } else {
+                                $valid_ok = FALSE;
+                            }
+                            break;   
+                            
+                        
+                        
+                         case "kkcheck":	
+						 if (preg_match("/^[0-9]{5,6}$/", $inhalt)) {
+                              
+                               
+                                    $_SESSION["formcheck"] = $inhalt;
+                        
+                              
                                 break;
                             } else {
                                 $valid_ok = FALSE;
                             }
                             break;
-                        case "kkcheck":
-                            if (preg_match("/^[0-9]{5,6}$/", $inhalt)) {
-                                $_SESSION["formcheck"] = $inhalt;
+                            
+                            
+                            
+                          case "kkcheck6":	
+						 if (preg_match("/^[0-9]{6}$/", $inhalt)) {
+                              
+                               
+                                    $_SESSION["formcheck"] = $inhalt;
+                        
+                              
                                 break;
                             } else {
                                 $valid_ok = FALSE;
                             }
-                            break;
-                        case "kkcheck6":
-                            if (preg_match("/^[0-9]{6}$/", $inhalt)) {
-                                $_SESSION["formcheck"] = $inhalt;
-                                break;
-                            } else {
-                                $valid_ok = FALSE;
-                            }
-                            break;
+                            break;    
+                            
+
                         // Captchaabfrage
                         case "check":
                         case "captcha":
@@ -752,17 +780,18 @@ for ($i = 0; $i < count($form_elements); $i++) {
                 $inptype     = "text";
             }
             if ($element[0] == "date") {
-                $placeholder = ' placeholder="tt.mm.jjjj"';
-                if (is_old_android()) {
-                    $inptype = "text";
-                } else {
-                    $inptype = "date";
-                }
+				$placeholder = ' placeholder="tt.mm.jjjj"';
+                
+				if(is_old_android()) {$inptype     = "text";}
+				else {
+				$inptype     = "date";
+				}
             }
             if ($element[0] == "time") {
                 $placeholder = ' placeholder="hh:mm"';
                 $inptype     = "time";
             }
+            
             if ($element[0] == "text") {
                 $inptype = "text";
             }
@@ -948,6 +977,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
             $formoutput[] = '
               ' . $SEL->out() . '<br /></div>';
             break;
+        
         case "timeselect":
             $req                                                         = ($element[2] == 1) ? $formreq : '';
             // STUNDEN
@@ -1157,7 +1187,7 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
     // END :: Uploadverarbeitung
     $_SESSION['token'] = $_POST['token'];
     unset($_SESSION["kcode"]); //Captcha-Variable zurücksetzen
-    //   Vergleichsfeld festlegen
+  #   Vergleichsfeld festlegen
     // Selbsdefinierte Sessionvariable zurücksetzen 
     if ("REX_VALUE[16]" != "") {
         unset($_SESSION["REX_VALUE[16]"]);
@@ -1228,7 +1258,7 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
             if ($k != $formname . 'submit' && $k != $formname . 'send' && (!isset($AFE[$key][5]) || $AFE[$key][5] != 'captcha') && stripslashes($v) != '' && isset($AFE[$key][1]) && !in_array($AFE[$key][0], $ignore)) {
                 $v  = strip_tags($v);
                 $v  = stripslashes($v);
-                $v2 = substr($v, 0, -5) . '*****';
+                $v2 = substr($v, 0, -5) . 'XXXXX';
                 switch ($AFE[$key][0]) {
                     case "BIC":
                         $mailbodyhtml .= '<span class="slabel">' . $fcounter . '. ' . $AFE[$key][1] . ": </span>" . strtoupper($v) . '<br />';
@@ -1325,7 +1355,7 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
         }
     }
     // =================MAIL-RESPONDER-ENDE=========================
-    unset($_SESSION["formcheck"]); //
+unset($_SESSION["formcheck"]); //
 ?>
 <div class="formthanks">REX_HTML_VALUE[6]</div>
  
@@ -1344,13 +1374,4 @@ if ($warning_set) {
         print $out;
     }
 }
-<<<<<<< HEAD
 ?>
-=======
-
-
-
-
-
-?>
->>>>>>> FETCH_HEAD
