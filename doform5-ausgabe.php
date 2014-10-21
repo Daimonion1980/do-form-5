@@ -2,7 +2,7 @@
 /**==================================================
  * REDAXO-Modul: do form!  http://klxm.de/produkte/
  * Bereich: Ausgabe
- * Version: 5.0.2.1 , Datum: 21.10.2014
+ * Version: 5.0.2.2 , Datum: 21.10.2014
  *==================================================*/
 //   KONFIGURATION
 $ftitel                      = '<strong>Webformular:</strong>: REX_VALUE[4]'; // Überschrift / Betreff der HTML-E-Mail
@@ -17,8 +17,6 @@ $formbcc                     = "REX_VALUE[11]"; // BCC-Feld
 $sendfullmail                = "REX_VALUE[13]"; //Original senden an Bestätigungsmail anhängen
 $submitlabel                 = "REX_VALUE[7]"; // Bezeichnung des Sende-Buttons
 $redaxofile                  = $REX['HTDOCS_PATH'] . "files/" . "REX_FILE[1]"; // Pfad zum Dateianhang bei Bestätigungs-E-Mail
-$mcharset                    = 'UTF-8';
-$acharset                    = 'accept-charset="UTF-8"';
 $uploadpfad_mit_mailschicken = true; // Bei E-Mail-Anhängen
 // FROMMODE: true entspricht der Absender der E-Mail dem Empfänger der Mail
 // Bei false wird der Absender der im PHPMailer-Addon hinterlegt wurde übernommen
@@ -26,14 +24,12 @@ $frommode                    = true; // Standard=true
 // Welche Felder sollen nicht in der E-Mail  übertragen werden?
 $ignore                      = array(
     'captcha','sicherheitscode','ilink','ilink2','divstart','divend','fieldend','info','exlink');
-// =============================================
 //  Captcha
 $captchaID                   = 000; // ID zum Captcha-Artikel der das Captcha-Template nutzt
 $captchasource               = htmlspecialchars(rex_getUrl($captchaID));
 // Alternative: Externe Einbindung eines Captchas
 // $captchasource="/redaxo/captcha/captcha.php";
-// =============================================
-//  Fehlermeldungen / Mehrsprachig
+// Fehlermeldungen / Mehrsprachig
 // Sprache 0 -- Hier Deutsch
 if ($REX['CUR_CLANG'] == 0) {
     //### Achtung! Hinter <<< EOD darf kein Leerzeichen stehen.
@@ -50,7 +46,6 @@ EOD;
 }
 // Sprache 1 -- z.B. Englisch
 if ($REX['CUR_CLANG'] == 1) {
-    //### Achtung! Hinter <<< EOD darf kein Leerzeichen stehen.
     $fError = <<<EOD
 Unfortunately we have been unable to process your request. <br/>
 Please check the information you have provided.
@@ -59,19 +54,17 @@ EOD;
 }
 // Sprache 2 -- z.B. Niederlande
 if ($REX['CUR_CLANG'] == 2) {
-    //### Achtung! Hinter <<< EOD darf kein Leerzeichen stehen.
     $fError = <<<EOD
 We konden uw aanvraag helaas niet verwerken.<br/>
 Controleer uw gegevens.
 EOD;
     $frel   = "<br />You have tried to reload this page. Your message has been already sent.";
 }
-//  Vorlage für HTML-Mail
-// HEADER
+// E-Mail-HEADER
 $doformhtml       = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=' . $mcharset . '" />
+<meta http-equiv="Content-Type" content="text/html; charset="UTF-8" />
 <title>NACHRICHTEN-ÜBERMITTLUNG</title>
 <style type="text/css">
 <!--
@@ -131,14 +124,13 @@ br {
   ' . $ftitel . '
 </div><br/>
 ';
-// footer
+// E-Mail-Footer
 $doformhtmlfooter = '<hr size="1" /><br />
-<br />KWW-Formular</body></html>';
-$nonhtmlfooter    = "\n----------------------------------\n http://www.kww-online.de!
+<br /></body></html>';
+$nonhtmlfooter    = "\n----------------------------------\n
  ";
-// =============================================
 // Ende der allgemeinen Konfiguration
-//=============================================
+
 $absendermail     = "";
 $linkclass        = "";
 $cupload          = 0;
@@ -1037,7 +1029,7 @@ if (isset($uploadpfad) and $uploadpfad != '' and $REX['REDAXO']) {
 // =================AUSGABE-KOPF============================
 $out = '
    
-   <form class="formgen doajax" id="' . $formname . '" action="' . rex_getUrl(REX_ARTICLE_ID) . '" ' . $acharset . ' method="post" ' . $form_enctype . '>
+   <form class="formgen doajax" id="' . $formname . '" action="' . rex_getUrl(REX_ARTICLE_ID) . '" accept-charset="UTF-8" method="post" ' . $form_enctype . '>
       <div><input type="hidden" name="FORM[' . $formname . '][' . $formname . 'send]" value="1" /><input type="hidden" name="ctype" value="ctype" /></div>
       <input type="hidden" name="token" value="' . $token . '" />';
 // =================Formular-generieren=====================
