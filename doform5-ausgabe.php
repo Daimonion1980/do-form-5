@@ -2,7 +2,7 @@
 /**==================================================
  * REDAXO-Modul: do form!  http://klxm.de/produkte/
  * Bereich: Ausgabe
- * Version: 5.0.2 , Datum: 22.09.2014
+ * Version: 5.0.2.1 , Datum: 21.10.2014
  *==================================================*/
 //   KONFIGURATION
 $ftitel                      = '<strong>Webformular:</strong>: REX_VALUE[4]'; // Überschrift / Betreff der HTML-E-Mail
@@ -28,15 +28,12 @@ $ignore                      = array(
     'captcha','sicherheitscode','ilink','ilink2','divstart','divend','fieldend','info','exlink');
 // =============================================
 //  Captcha
-// ============================================= 
 $captchaID                   = 000; // ID zum Captcha-Artikel der das Captcha-Template nutzt
 $captchasource               = htmlspecialchars(rex_getUrl($captchaID));
 // Alternative: Externe Einbindung eines Captchas
 // $captchasource="/redaxo/captcha/captcha.php";
-// Mehr Infos unter: http://www.redaxo.org/de/wiki/index.php?n=R4.Formulargenerator-Tipps
 // =============================================
 //  Fehlermeldungen / Mehrsprachig
-// ============================================= 
 // Sprache 0 -- Hier Deutsch
 if ($REX['CUR_CLANG'] == 0) {
     //### Achtung! Hinter <<< EOD darf kein Leerzeichen stehen.
@@ -265,27 +262,14 @@ if (!function_exists('getValidIban')) {
         // define the pattern
         $pattern = '#(?P<value>((?=[0-9A-Z]{28}$)AL\d{10}[0-9A-Z]{16}$|^(?=[0-9A-Z]{24}$)AD\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)AT\d{18}$|^(?=[0-9A-Z]{22}$)BH\d{2}[A-Z]{4}[0-9A-Z]{14}$|^(?=[0-9A-Z]{16}$)BE\d{14}$|^(?=[0-9A-Z]{20}$)BA\d{18}$|^(?=[0-9A-Z]{22}$)BG\d{2}[A-Z]{4}\d{6}[0-9A-Z]{8}$|^(?=[0-9A-Z]{21}$)HR\d{19}$|^(?=[0-9A-Z]{28}$)CY\d{10}[0-9A-Z]{16}$|^(?=[0-9A-Z]{24}$)CZ\d{22}$|^(?=[0-9A-Z]{18}$)DK\d{16}$|^FO\d{16}$|^GL\d{16}$|^(?=[0-9A-Z]{28}$)DO\d{2}[0-9A-Z]{4}\d{20}$|^(?=[0-9A-Z]{20}$)EE\d{18}$|^(?=[0-9A-Z]{18}$)FI\d{16}$|^(?=[0-9A-Z]{27}$)FR\d{12}[0-9A-Z]{11}\d{2}$|^(?=[0-9A-Z]{22}$)GE\d{2}[A-Z]{2}\d{16}$|^(?=[0-9A-Z]{22}$)DE\d{20}$|^(?=[0-9A-Z]{23}$)GI\d{2}[A-Z]{4}[0-9A-Z]{15}$|^(?=[0-9A-Z]{27}$)GR\d{9}[0-9A-Z]{16}$|^(?=[0-9A-Z]{28}$)HU\d{26}$|^(?=[0-9A-Z]{26}$)IS\d{24}$|^(?=[0-9A-Z]{22}$)IE\d{2}[A-Z]{4}\d{14}$|^(?=[0-9A-Z]{23}$)IL\d{21}$|^(?=[0-9A-Z]{27}$)IT\d{2}[A-Z]\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)[A-Z]{2}\d{5}[0-9A-Z]{13}$|^(?=[0-9A-Z]{30}$)KW\d{2}[A-Z]{4}22!$|^(?=[0-9A-Z]{21}$)LV\d{2}[A-Z]{4}[0-9A-Z]{13}$|^(?=[0-9A-Z]{,28}$)LB\d{6}[0-9A-Z]{20}$|^(?=[0-9A-Z]{21}$)LI\d{7}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)LT\d{18}$|^(?=[0-9A-Z]{20}$)LU\d{5}[0-9A-Z]{13}$|^(?=[0-9A-Z]{19}$)MK\d{5}[0-9A-Z]{10}\d{2}$|^(?=[0-9A-Z]{31}$)MT\d{2}[A-Z]{4}\d{5}[0-9A-Z]{18}$|^(?=[0-9A-Z]{27}$)MR13\d{23}$|^(?=[0-9A-Z]{30}$)MU\d{2}[A-Z]{4}\d{19}[A-Z]{3}$|^(?=[0-9A-Z]{27}$)MC\d{12}[0-9A-Z]{11}\d{2}$|^(?=[0-9A-Z]{22}$)ME\d{20}$|^(?=[0-9A-Z]{18}$)NL\d{2}[A-Z]{4}\d{10}$|^(?=[0-9A-Z]{15}$)NO\d{13}$|^(?=[0-9A-Z]{28}$)PL\d{10}[0-9A-Z]{,16}n$|^(?=[0-9A-Z]{25}$)PT\d{23}$|^(?=[0-9A-Z]{24}$)RO\d{2}[A-Z]{4}[0-9A-Z]{16}$|^(?=[0-9A-Z]{27}$)SM\d{2}[A-Z]\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{,24}$)SA\d{4}[0-9A-Z]{18}$|^(?=[0-9A-Z]{22}$)RS\d{20}$|^(?=[0-9A-Z]{24}$)SK\d{22}$|^(?=[0-9A-Z]{19}$)SI\d{17}$|^(?=[0-9A-Z]{24}$)ES\d{22}$|^(?=[0-9A-Z]{24}$)SE\d{22}$|^(?=[0-9A-Z]{21}$)CH\d{7}[0-9A-Z]{12}$|^(?=[0-9A-Z]{24}$)TN59\d{20}$|^(?=[0-9A-Z]{26}$)TR\d{7}[0-9A-Z]{17}$|^(?=[0-9A-Z]{,23}$)AE\d{21}$|^(?=[0-9A-Z]{22}$)GB\d{2}[A-Z]{4}\d{14}))#';
         // check
-        if (preg_match($pattern, $iban, $matches)) {
-            return true;
-        } else {
-            return false;
-        }
+        if (preg_match($pattern, $iban, $matches)) {return true;} else {return false;}
     }
 }
-
-
-
-/**
- * Convert a shorthand byte value from a PHP configuration directive to an integer value
- * @param    string   $value
- * @return   int
- */
 if (!function_exists('convertBytes')) {
     function convertBytes($value)
     {
-        if (is_numeric($value)) {
-            return $value;
-        } else {
+        if (is_numeric($value)) {return $value;} 
+        else {
             $value        = trim($value);
             $value_length = strlen($value);
             $qty          = substr($value, 0, $value_length - 1);
@@ -322,10 +306,7 @@ $formoutput    = array();
 $warning       = array();
 $warning_set   = 0; // wird zu 1, wenn eine Fehler auftritt
 $form_elements = array();
-
 $form_elements = explode("\n", $rex_form_data);
-
-
 //Abfrage Felder Vor- und Nachname, 14.05.2014, Benedikt Marcard, Marcard Media, www.marcard-media.de
 for ($i = 0; $i < count($form_elements); $i++) {
     $element = explode("|", $form_elements[$i]);
@@ -367,7 +348,6 @@ $form_enctype  = '';
 /**
  * Enthaelt die Dateiangaben der uebertragenen Datei und den Namen der Zieldatei
  * Form: array ( targetFile => tempFile )
- * 
  * @var array
  */
 $upload_File   = array();
@@ -494,7 +474,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
             $ro            = explode(';', trim($element[3]));
             $val           = explode(';', trim($element[4]));
             $formlabel[$i] = '<label ' . $warning["el_" . $i] . ' for="el_' . $i . '" >' . $element[1] . $req . '</label>';
-            // Inspiriert durch grizou 
             $fo            = $formlabel[$i] . '<div id="el_' . $i . '" >' . "\n";
             for ($xi = 0; $xi < count($ro); $xi++) {
                 if ($val[$xi] == trim($FORM[$formname]["el_" . $i])) {
@@ -524,8 +503,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                 $req  = $formreq;
                 $freq = ' required';
             }
-            // 14.08.2009: GET-VARIABLENABFRAGE von Tito übernommen, 
-            // siehe http://forum.redaxo.de/ftopic11635-30.html
+            // 14.08.2009: GET-VARIABLENABFRAGE von Tito übernommen, siehe http://forum.redaxo.de/ftopic11635-30.html
             if ($FORM[$formname]["el_" . $i] == '' && !$FORM[$formname][$formname . 'send'] && isset($element[3])) // " && isset($element[3])" eingefügt - ### MW ###
                 {
                 if (strchr($element[3], 'GET_')) {
@@ -546,8 +524,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                 $warnblock["el_" . $i] = $bstyle;
                 $warning_set           = 1;
             }
-            // ### Validierung
-            // falls Pflichtelement oder Inhalt da und Formular abgeschickt
+            // ### Validierung falls Pflichtelement oder Inhalt da und Formular abgeschickt
             if (!isset($element[5]))
                 $element[5] = ''; // Zeile eingefügt - ### MW ###
             if ((isset($element[2]) && $element[2] == 1) && (trim($FORM[$formname]["el_" . $i]) != "") && ($FORM[$formname][$formname . "send"] == 1) || (trim($element[5]) != "" && $FORM[$formname][$formname . "send"] == 1 && $element[2] != 1 && trim($FORM[$formname]["el_" . $i]) != "")) {
@@ -574,16 +551,14 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 }
                             }
                             break;
-                        //Telefonnummern mindestens 6 Zahlen
                         case "tel":
                         case "telefon":
                             if (preg_match("#^[ \(\)\+0-9\/-]{6,}+$#", $inhalt)) {
                                 break;
                             } else {
                                 $valid_ok = FALSE;
-                            } // Neu: 04.04.2011
+                            } 
                             break;
-                        //Postleitzahlen
                         case "plz":
                             if (preg_match("/^[0-9]{5}$/", $inhalt)) {
                                 break;
@@ -591,8 +566,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 $valid_ok = FALSE;
                             }
                             break;
-	
-                        case "plz4":
+						case "plz4":
                             if (preg_match("/^[0-9]{4}$/", $inhalt)) {
                                 break;
                             } else {
@@ -614,7 +588,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
                             if (!ctype_alpha($inhalt))
                                 $valid_ok = FALSE;
                             break;
-                        // URL
                         case "url":
                             $inhalt = trim($inhalt);
                             if (preg_match("#^(http|https|ftp)+(://www.)+([a-z0-9-_.]{2,}\.[a-z]{2,4})$#i", $inhalt)) {
@@ -624,7 +597,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
 								 break;
                             }
                             break;
-                        // legt das zu per check zu prüfende Feld fest
                         case "iban":
                             if (($validiban = getValidIban($inhalt))) {
                                 break;
@@ -655,7 +627,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
 								$valid_ok = FALSE;
                                 break;}
                             break;
-
                         case "bic":
                             if (preg_match("#^[a-zA-Z]{6}[a-zA-Z0-9]{2,5}$#", $inhalt)) {
                                 break;
@@ -671,70 +642,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 $valid_ok = FALSE;
                             }
                             break;
-                        
-                        
-						 case "kk":
-                            if (preg_match("/^[0-9]{5,6}$/", $inhalt)) {
-                              
-                               if ($element[5] == "kkcheck") {
-                                    $_SESSION["formcheck"] = $inhalt;
-                                    echo 'XXX'.$inhalt;
-                                }
-                              
-                              
-                                break;
-                            } else {
-                                $valid_ok = FALSE;
-                            }
-                            break;
-                            
-                            
-                          case "kk6":
-                            if (preg_match("/^[0-9]{6}$/", $inhalt)) {
-                              
-                               if ($element[5] == "kkcheck") {
-                                    $_SESSION["formcheck"] = $inhalt;
-                                    echo 'XXX'.$inhalt;
-                                }
-                              
-                              
-                                break;
-                            } else {
-                                $valid_ok = FALSE;
-                            }
-                            break;   
-                            
-                        
-                        
-                         case "kkcheck":	
-						 if (preg_match("/^[0-9]{5,6}$/", $inhalt)) {
-                              
-                               
-                                    $_SESSION["formcheck"] = $inhalt;
-                        
-                              
-                                break;
-                            } else {
-                                $valid_ok = FALSE;
-                            }
-                            break;
-                            
-                            
-                            
-                          case "kkcheck6":	
-						 if (preg_match("/^[0-9]{6}$/", $inhalt)) {
-                              
-                               
-                                    $_SESSION["formcheck"] = $inhalt;
-                        
-                              
-                                break;
-                            } else {
-                                $valid_ok = FALSE;
-                            }
-                            break;    
-                            
-
                         // Captchaabfrage
                         case "check":
                         case "captcha":
@@ -768,7 +675,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
             }
             $placeholder = '';
             // ### /Validierung
-            if ($element[0] == "hidden") {
+            if ($element[0] == "hidden") { 
                 $inptype = "hidden";
             }
             if ($element[0] == "BIC") {
@@ -781,7 +688,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
             }
             if ($element[0] == "date") {
 				$placeholder = ' placeholder="tt.mm.jjjj"';
-                
 				if(is_old_android()) {$inptype     = "text";}
 				else {
 				$inptype     = "date";
@@ -791,7 +697,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
                 $placeholder = ' placeholder="hh:mm"';
                 $inptype     = "time";
             }
-            
             if ($element[0] == "text") {
                 $inptype = "text";
             }
@@ -887,7 +792,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
         case "dateselect":
         case "xdate":
             $req                                                         = ($element[2] == 1) ? $formreq : '';
-            // TAGE
             $AFE[$i . '_d']                                              = $element;
             $form_element_ids[md5(strtolower(trim($element[1])) . '_d')] = 'el_' . $i . '_d';
             $SEL                                                         = new select();
@@ -900,7 +804,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
             } else {
                 $SEL->set_selected($FORM[$formname]["el_" . $i . '_d']);
             }
-            // $SEL->add_option('', '');
             foreach (range(1, 31) as $v) {
                 $v = sprintf('%02d', $v);
                 $SEL->add_option($v, $v);
@@ -920,7 +823,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
             $formoutput[]                                                = '
               <div class="fieldblock"><label ' . $warning["el_" . $i . '_d'] . ' for="el_' . $i . '_d" >' . $element[1] . $req . '</label>
               ' . $SEL->out();
-            // MONATE
             $AFE[$i . '_m']                                              = $element;
             $form_element_ids[md5(strtolower(trim($element[1])) . '_m')] = 'el_' . $i . '_m';
             $SEL                                                         = new select();
@@ -933,14 +835,12 @@ for ($i = 0; $i < count($form_elements); $i++) {
             } else {
                 $SEL->set_selected($FORM[$formname]["el_" . $i . '_m']);
             }
-            //   $SEL->add_option('', '');
             foreach (range(1, 12) as $v) {
                 $v = sprintf('%02d', $v);
                 $SEL->add_option($v, $v);
             }
             $formoutput[]                                                = '
               ' . $SEL->out();
-            // JAHRE
             $AFE[$i . '_y']                                              = $element;
             $form_element_ids[md5(strtolower(trim($element[1])) . '_y')] = 'el_' . $i . '_y';
             $SEL                                                         = new select();
@@ -953,7 +853,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
             } else {
                 $SEL->set_selected($FORM[$formname]["el_" . $i . '_y']);
             }
-            //   $SEL->add_option('', '');
             if ($element[0] == "date") {
                 $year = intval(date('Y'));
                 if ($element[4] == "") {
@@ -977,7 +876,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
             $formoutput[] = '
               ' . $SEL->out() . '<br /></div>';
             break;
-        
         case "timeselect":
             $req                                                         = ($element[2] == 1) ? $formreq : '';
             // STUNDEN
@@ -1030,7 +928,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
             $formoutput[] = '
               ' . $SEL->out() . '<br />';
             break;
-        //############
         // ENDE DATUMSABFRAGE
         // Upload
         case "upload":
@@ -1048,8 +945,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
                 $upload_MaxSice = 0;
             }
             if (!empty($_FILES)) {
-                //DBO($_FILES);
-                // Dieses IF-Konstrukt kann man bestimmt noch kuerzer schreiben!? 
                 if ($_FILES['FORM']['error'][$formname]['el_' . $i] === UPLOAD_ERR_OK) {
                     // upload ok
                 } elseif ($req == '' && $_FILES['FORM']['error'][$formname]['el_' . $i] === UPLOAD_ERR_NO_FILE) {
@@ -1061,8 +956,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
                     $warnblock["el_" . $i] = $bstyle;
                     $warning_set           = 1;
                 }
-                // verarbeite die Dateiuebergabe nur, wenn auch ein Datei vorhanden ist und 
-                // kein weiterer Fehler auftrat
                 // alexplus: http://forum.redaxo.de/ftopic11635-150.html          
                 if (!$upload_keineDateivorhanden && $error_message == '') {
                     $targetPath     = "REX_VALUE[14]";
@@ -1074,15 +967,6 @@ for ($i = 0; $i < count($form_elements); $i++) {
                     // Multimail
                     $cupload++;
                     $domailfile[$cupload]           = $targetFile;
-                    /**
-                     * Beispielaufbau:
-                     * array (
-                     *   0 => 'jpg',
-                     *   1 => 'jpeg',
-                     *   2 => 'gif',
-                     * )
-                     * @var upload_Extensions
-                     */
                     $upload_Extensions              = array();
                     $upload_Extensions_errormessage = '';
                     $zaehler_element                = count(explode(";", trim($element[4])));
@@ -1137,12 +1021,9 @@ for ($i = 0; $i < count($form_elements); $i++) {
 }
 // BEGIN :: Uploadverarbeitung
 $uploadpfad = "REX_VALUE[14]";
-// pruefe Pfad auf Vorhandensein und Schreibrechte
-// Wenn Pfad nicht vorhanden, ignoriere die weitere Verarbeitung.
+// pruefe Pfad auf Vorhandensein und Schreibrechte, Wenn Pfad nicht vorhanden, ignoriere die weitere Verarbeitung.
 if (isset($uploadpfad) and $uploadpfad != '' and $REX['REDAXO']) {
-    // ... dum die dum ... Pfadpruefung erfolgt hier ...
-    // beginnt der Uploadpfad nicht mit einem Slash, muss es sich um einen lokalen
-    // Ordner handeln der vom Backend aus erweitert werden muss
+    // ... dum die dum ... Pfadpruefung erfolgt hier ...beginnt der Uploadpfad nicht mit einem Slash, muss es sich um einen lokalen Ordner handeln der vom Backend aus erweitert werden muss
     if (substr($uploadpfad, 0, 1) != '/') {
         $uploadpfad_tmp = '../' . $uploadpfad;
     } else {
@@ -1174,9 +1055,7 @@ $out .= '
    ';
 // =================SEND MAIL===============================
 if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 'send'] == 1 && !$warning_set) {
-    // BEGIN :: Uploadverarbeitung
-    //$uploadpfad = "REX_VALUE[14]";
-    // pruefe Pfad auf Vorhandensein und Schreibrechte
+    // BEGIN :: Uploadverarbeitung pruefe Pfad auf Vorhandensein und Schreibrechte
     // Wenn Pfad nicht vorhanden, ignoriere die weitere Verarbeitung.
     if (isset($uploadpfad) and $uploadpfad != '' and count($upload_File) > 0) {
         // ... dum die dum ... Pfadpruefung erfolgt hier ...
@@ -1187,14 +1066,11 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
     // END :: Uploadverarbeitung
     $_SESSION['token'] = $_POST['token'];
     unset($_SESSION["kcode"]); //Captcha-Variable zurücksetzen
-  #   Vergleichsfeld festlegen
     // Selbsdefinierte Sessionvariable zurücksetzen 
     if ("REX_VALUE[16]" != "") {
         unset($_SESSION["REX_VALUE[16]"]);
     }
-    // =============================================
     // E-Mail
-    // =============================================
     $mail = new rex_mailer(); // Mailer initialisieren
     $mail->AddAddress("REX_VALUE[1]"); // Empfänger
     if ($frommode == true) {
@@ -1210,9 +1086,7 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
     }
     $mail->Subject = htmlspecialchars_decode("REX_VALUE[4]"); // Betreff
     $mail->CharSet = $mcharset; // Zeichensatz
-    // =============================================
     // E-Mail-Content
-    //=============================================
     foreach ($FORM[$formname] as $k => $v) {
         $matches = array();
         if (preg_match('~el_[0-9]+_(d|m|y|h|n)~', $k, $matches)) {
