@@ -13,13 +13,13 @@ $doformversion="5.0.2";
  * Hinweise:
  * 
  * Formulargenerator für PHPMAILER
- * Required Addons: TinyMCE, PHPMAiler
+ * Required Addons: TinyMCE oder ckeditor, PHPMAiler
  * 
  * Datum: 22.09.2014
  * Ursprung: Formular-Generator Redaxo 3.2 Demo, do form! 2
  * Typ: Modifikation / Erweiterung  
  *=============================================
-
+*/
 // EINGABE EINSTELLUNGEN
 // zur Vereinfachung der Eingabemaske
 // Erweiterte Funktionen in der Moduleingabe freischalten 
