@@ -722,7 +722,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
             break;
         case "textarea":
             $req                = '';
-            $freq               = ' required';
+            $freq               = '';
             $fehlerImFormaufbau = doform_checkElements(2, $element, 'textarea');
             if (isset($element[2]) && $element[2] == 1) {
                 $req  = $formreq;
