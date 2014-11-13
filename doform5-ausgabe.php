@@ -1077,7 +1077,7 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
         $mail->AddBCC($formbcc);
     }
     $mail->Subject = htmlspecialchars_decode("REX_VALUE[4]"); // Betreff
-    $mail->CharSet = $mcharset; // Zeichensatz
+    $mail->CharSet = 'UTF-8'; // Zeichensatz
     // E-Mail-Content
     foreach ($FORM[$formname] as $k => $v) {
         $matches = array();
@@ -1194,7 +1194,7 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
         $mail->From     = "REX_VALUE[2]";
         $mail->FromName = htmlspecialchars_decode("REX_VALUE[8]");
         $mail->Subject  = htmlspecialchars_decode("REX_VALUE[17]");
-        $mail->CharSet  = $mcharset;
+        $mail->CharSet  = 'UTF-8';
         //### Datei (z.B. AGB) versenden ####
         if ("REX_FILE[1]" != '') {
             $mail->AddAttachment($redaxofile);
