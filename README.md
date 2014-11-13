@@ -51,7 +51,7 @@ Beispiele der neuen Felder:
 
 `date|Datum der Meldung|1|today||date `
 
-`time|Uhrzeit|1|now||date `
+`time|Uhrzeit|1|now||time `
 
 (Wird kein default-value eingegeben, werden entsprechende Placeholder in
 modernen Browsern dargestellt)
