@@ -7,15 +7,12 @@
 $doformversion="5.0.2.3";
  /**
  * ab Redaxo Version: 4.5
- * Module-id: 572
  * Werbeagentur KLXM Crossmedia  
  * www.klxm.de
  * Hinweise:
- * 
  * Formulargenerator für PHPMAILER
  * Required Addons: TinyMCE oder ckeditor, PHPMAiler
- * 
- * Datum: 13.11.2014
+ * Datum: 18.11.2014
  * Ursprung: Formular-Generator Redaxo 3.2 Demo, do form! 2
  * Typ: Modifikation / Erweiterung  
  *=============================================
@@ -35,8 +32,8 @@ $editstyle='ckeditor'; // Lege die CSS-Klasse für den WYSIWYG-Editor fest (z.B.
  
 // Definition des Standard-Formulars 
 $defaultdata="
-text|Nachname|1|||name
 text|Vorname|1|||checkfield
+text|Nachname|1|||name
 text|Firma |
 text|Straße|
 text|PLZ|1|||plz
@@ -213,7 +210,7 @@ function convertBytes( $value ) {
 	font-family: Geneva, Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: bold;
-	background-color: #3C9ED0;
+	background-color: #22648F;
 	padding-top: 4px;
 	padding-right: 10px;
 	padding-bottom: 15px;
@@ -424,7 +421,7 @@ Datei anh&#228;ngen: </strong>REX_MEDIA_BUTTON[1] </div>
    <textarea name="VALUE[6]" class="<?php echo $editstyle;?>" style="width:555px; height:250px;">REX_VALUE[6]</textarea>
    
 <?php  }  else {
-    echo' <div class="formgenerror"> Editor wurde nicht gefunden. <br/> Bitte installieren Sie das ADDON! </div>';
+    echo' <div class="formgenerror"> Editor wurde nicht gefunden. <br/> Bitte installieren Sie ein geeignetes ADDON! <br/>z.B: TinyMCE oder CKEDITOR </div>';
   } ?>
    
    
@@ -468,7 +465,8 @@ upload|Upload JPG|0||jpg;jpeg;gif||0.5m
   klxm do form! 5.x basiert auf den in Redaxo 3.2 mitgelieferten Formular-Generator.<br />
    Beim ersten Aufruf erstellt das Modul eine Konfiguration für ein Standard-Kontaktformular. <br/>
      Im Beispiel-Formular sehen Sie Möglichkeiten zur Konfiguration. <br/>
-<a href="https://github.com/skerbis/do-form-5" target="_blank">Eine ausf&uuml;hrliche Anleitung.</a><br />
+<a href="https://github.com/skerbis/do-form-5" target="_blank">Eine ausf&uuml;hrliche Anleitung.</a><br>
+<a href="http://klxm.de/produkte/redaxo-formulargenerator/" target="_blank">Download der neusten Version </a><br />
      <br />
 <strong>Empfehlung:</strong><br />
      Wir empfehlen im PHP-Mailer die Einstellung SMTP-AUTH zu verwenden. 
@@ -491,7 +489,7 @@ upload|Upload JPG|0||jpg;jpeg;gif||0.5m
         <li>digit (nur Zahlen)</li>
         <li>plz (5 Zahlen)</li>
         <li>plz4 (4 Zahlen)</li>
-        <li>tel (mindestens 6 Zahlen)</li>
+        <li>tel</li>
         <li>name prüft Namen und z.B. übliche Firmenbezeichnungen</li>
         <li>mail (pr&uuml;ft eingegebene E-Mail-Adressen) </li>
         <li>sender (diese Adresse wird als Absendermail eingesetzt und gepr&uuml;ft)</li>
