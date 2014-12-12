@@ -4,7 +4,7 @@
  * REDAXO-Modul: do form!
  * Bereich: Eingabe 
  */
-$doformversion="5.0.2.3";
+$doformversion="5.0.3";
  /**
  * ab Redaxo Version: 4.5
  * Werbeagentur KLXM Crossmedia  
@@ -22,10 +22,10 @@ $doformversion="5.0.2.3";
 // Erweiterte Funktionen in der Moduleingabe freischalten 
 // Es sind evtl. Anpassungen im ausgabe-Code erforderlich
  
-$uploadon=false;  // UPLOADS AKTIVIEREN true oder false
-$sessionson=false;  // SESSIONS AKTIVIEREN true oder false
-$bccon=false;  // BCC AKTIVIEREN true oder false
-$sslon=false; // SSL-Umschalter - Muss in der Ausgabe angepasst werden 
+$uploadon=true;  // UPLOADS AKTIVIEREN true oder false
+$sessionson=true;  // SESSIONS AKTIVIEREN true oder false
+$bccon=true;  // BCC AKTIVIEREN true oder false
+$sslon=true; // SSL-Unterstützung aktivieren
 $weditor='ckeditor'; // Welches WYSIWYG-addon soll verwendet werden? z.B.: ckeditor oder tinymce 
 $editstyle='ckeditor'; // Lege die CSS-Klasse für den WYSIWYG-Editor fest (z.B. ckeditor oder tinyMCEEditor) 
 
