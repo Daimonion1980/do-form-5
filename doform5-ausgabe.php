@@ -7,7 +7,7 @@
 //   KONFIGURATION
 $ftitel                      = '<strong>Webformular:</strong>: REX_VALUE[4]'; // Überschrift / Betreff der HTML-E-Mail
 $ssldomain		     = $_SERVER['HTTP_HOST'];
-#$ssldomain                   = 'domain.tld'; // SSl-Domain ohne https://, kein Slash am Ende 
+#$ssldomain                   = 'domain.tld'; // manuelle SSL-Domain ohne https://, kein Slash am Ende 
 $style                       = 'class="formerror"'; // Label-Stildefinition für Fehler
 $bstyle                      = 'formerror'; // Formfield-Fehler-Klasse
 $formname                    = "doform" . "REX_SLICE_ID"; // Formular ID generiert aus SLICE ID
