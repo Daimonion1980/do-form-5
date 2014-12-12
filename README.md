@@ -11,7 +11,7 @@ Javascripte und CSS-Definitionen sind nicht Bestandteil der freien Version.
 
 z.B. Redaxo-Modul: do form!, Werbeagentur KLXM Crossmedia GmbH, http://klxm.de
 
-Homepage: http://klxm.de/produkte/redaxo-do-form/
+Homepage: http://klxm.de/produkte/redaxo-formulargenerator/
 
 Imressum: http://klxm.de/impressum/
 
