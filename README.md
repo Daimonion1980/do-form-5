@@ -25,6 +25,9 @@ FAQ: https://github.com/skerbis/do-form-5/wiki/FAQ
 
 ![](<screenshot_.png>)
 
+### Neu in Version 5.0.4 
+subjectselect| 
+Selectfield zur Übergabe eines Betreffs. 
 
 ### Neu in Version 5.0.2 
 
