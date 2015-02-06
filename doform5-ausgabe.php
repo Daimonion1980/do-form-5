@@ -2,7 +2,7 @@
 /**==================================================
  * REDAXO-Modul: do form!  http://klxm.de/produkte/
  * Bereich: Ausgabe
- * Version: 5.0.3 , Datum: 12.12.2014
+ * Version: 5.0.4 , Datum: 06.02.2015
  *==================================================*/
 //   KONFIGURATION
 $ftitel                      = '<strong>Webformular:</strong>: REX_VALUE[4]'; // Überschrift / Betreff der HTML-E-Mail
@@ -132,6 +132,7 @@ $nonhtmlfooter    = "\n----------------------------------\n
  ";
 // Ende der allgemeinen Konfiguration
 
+$sselect          = "";
 $absendermail     = "";
 $linkclass        = "";
 $cupload          = 0;
@@ -742,6 +743,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
            <textarea class="formtextfield" cols="40" rows="10" title="' . $element[1] . '" name="FORM[' . $formname . '][el_' . $i . ']" id="el_' . $i . '"' . $freq . ' >' . htmlspecialchars(stripslashes($FORM[$formname]["el_" . $i])) . '</textarea><br /></div>';
             break;
         case "select":
+        case "subjectselect":
             $req                = '';
             $fehlerImFormaufbau = doform_checkElements(3, $element, 'select');
             if (isset($element[2]) && $element[2] == 1) {
@@ -1077,8 +1079,6 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
     if ($formbcc != '') {
         $mail->AddBCC($formbcc);
     }
-    $mail->Subject = htmlspecialchars_decode("REX_VALUE[4]"); // Betreff
-    $mail->CharSet = 'UTF-8'; // Zeichensatz
     // E-Mail-Content
     foreach ($FORM[$formname] as $k => $v) {
         $matches = array();
@@ -1127,6 +1127,9 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
                 $v  = stripslashes($v);
                 $v2 = substr($v, 0, -5) . 'XXXXX';
                 switch ($AFE[$key][0]) {
+                    case "subjectselect":
+                         $sselect=$v.' - ';
+                         break;
                     case "BIC":
                         $mailbodyhtml .= '<span class="slabel">' . $fcounter . '. ' . $AFE[$key][1] . ": </span>" . strtoupper($v) . '<br />';
                         $mailbody .= $xcounter . '. ' . $AFE[$key][1] . ": " . strtoupper($v) . "\n";
@@ -1166,6 +1169,8 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
             }
         }
     }
+    $mail->Subject =  $mail->Subject = $sselect."REX_VALUE[4]"; // Betreff
+    $mail->CharSet = 'UTF-8'; // Zeichensatz    
     // HTML-EMAIL JA /NEIN
     if ("REX_VALUE[12]" == 'ja') {
         $mail->IsHTML(true);
