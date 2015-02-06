@@ -4,7 +4,7 @@
  * REDAXO-Modul: do form!
  * Bereich: Eingabe 
  */
-$doformversion="5.0.3";
+$doformversion="5.0.4";
  /**
  * ab Redaxo Version: 4.5
  * Werbeagentur KLXM Crossmedia  
@@ -12,7 +12,7 @@ $doformversion="5.0.3";
  * Hinweise:
  * Formulargenerator für PHPMAILER
  * Required Addons: TinyMCE oder ckeditor, PHPMAiler
- * Datum: 12.12.2014
+ * Datum: 06.02.2015
  * Ursprung: Formular-Generator Redaxo 3.2 Demo, do form! 2
  * Typ: Modifikation / Erweiterung  
  *=============================================
