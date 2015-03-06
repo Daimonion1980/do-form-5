@@ -32,7 +32,7 @@ $editstyle='ckeditor'; // Lege die CSS-Klasse für den WYSIWYG-Editor fest (z.B.
  
 // Definition des Standard-Formulars 
 $defaultdata="
-text|Vorname|1|||checkfield
+text|Vorname|1|||name
 text|Nachname|1|||name
 text|Firma |
 text|Straße|
@@ -42,8 +42,6 @@ text|Telefon||||tel
 text|Telefax||||tel
 email|E-Mail|1|||sender
 textarea|Ihre Nachricht: |1|
-info|Geben Sie bitte noch mal Ihren Ihren Vornamen ein
-text|Vorname|1|||check
 ";
  
  
@@ -435,7 +433,7 @@ Datei anh&#228;ngen: </strong>REX_MEDIA_BUTTON[1] </div>
     <textarea name="demo" cols="80" rows="11" class="formgenconfig" style="width:95%;height:200px;">
 fieldstart|Kontaktdaten
 text|Name|1|||checkfield    
-text|Name|1|||name
+text|Vorname|1|||name
 text|Firma
 text|Straße
 text|PLZ|1|||plz
@@ -453,7 +451,7 @@ divend|
 select|Auswahl|1||Birne;Apfel;Kirsche
 checkbox|AGB gelesen?
 fieldend|
-info|Geben Sie bitte diesen Code oder nochmal Ihren Namen ein
+info|Geben Sie bitte nochmal Ihren Namen ein
 text|Sicherheitscode|1|||check
 textarea|Ihre Nachricht:|1|
 upload|Upload JPG|0||jpg;jpeg;gif||0.5m
