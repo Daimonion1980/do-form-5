@@ -5,12 +5,11 @@
  * Version: 5.0.4 , Datum: 06.02.2015
  *==================================================*/
 //   KONFIGURATION
-$ftitel                      = '<strong>Webformular:</strong>: REX_VALUE[4]'; // Überschrift / Betreff der HTML-E-Mail
+$ftitel                      = 'REX_VALUE[4]'; // Überschrift / Betreff der E-Mail
 $ssldomain		     = $_SERVER['HTTP_HOST'];
-#$ssldomain                   = 'domain.tld'; // manuelle SSL-Domain ohne https://, kein Slash am Ende 
 $style                       = 'class="formerror"'; // Label-Stildefinition für Fehler
 $bstyle                      = 'formerror'; // Formfield-Fehler-Klasse
-$formname                    = "doform" . "REX_SLICE_ID"; // Formular ID generiert aus SLICE ID
+$formname                    = "doform5" . "REX_SLICE_ID"; // Formular ID generiert aus SLICE ID
 $formdatum                   = date("d.m.Y"); // Datum
 $formzeit                    = date("H:i"); // Uhrzeit
 $formreq                     = '&nbsp;<strong class="formreq">*</strong>'; // Markierung von Pflichtfeldern
