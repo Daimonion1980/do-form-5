@@ -2,11 +2,11 @@
 /**==================================================
  * REDAXO-Modul: do form!  http://klxm.de/produkte/
  * Bereich: Ausgabe
- * Version: 5.0.4 , Datum: 06.02.2015
+ * Version: 5.1 , Datum: 28.04.2015
  *==================================================*/
 //   KONFIGURATION
 $ftitel                      = 'REX_VALUE[4]'; // Überschrift / Betreff der E-Mail
-$ssldomain		     = $_SERVER['HTTP_HOST'];
+$ssldomain                   = $_SERVER['HTTP_HOST'];
 $style                       = 'class="formerror"'; // Label-Stildefinition für Fehler
 $bstyle                      = 'formerror'; // Formfield-Fehler-Klasse
 $formname                    = "doform5" . "REX_SLICE_ID"; // Formular ID generiert aus SLICE ID
@@ -23,7 +23,16 @@ $uploadpfad_mit_mailschicken = true; // Bei E-Mail-Anhängen
 $frommode                    = true; // Standard=true
 // Welche Felder sollen nicht in der E-Mail  übertragen werden?
 $ignore                      = array(
-    'captcha','sicherheitscode','ilink','ilink2','divstart','divend','fieldend','info','exlink');
+    'captcha',
+    'sicherheitscode',
+    'ilink',
+    'ilink2',
+    'divstart',
+    'divend',
+    'fieldend',
+    'info',
+    'exlink'
+);
 //  Captcha
 $captchaID                   = 000; // ID zum Captcha-Artikel der das Captcha-Template nutzt
 $captchasource               = htmlspecialchars(rex_getUrl($captchaID));
@@ -131,12 +140,12 @@ $nonhtmlfooter    = "\n----------------------------------\n
  ";
 // Ende der allgemeinen Konfiguration
 
-$sselect          = "";
-$absendermail     = "";
-$linkclass        = "";
-$cupload          = 0;
-$fcounter         = 1;
-$xcounter         = 1;
+$sselect      = "";
+$absendermail = "";
+$linkclass    = "";
+$cupload      = 0;
+$fcounter     = 1;
+$xcounter     = 1;
 /* --------------------------- SSL-Schalter ------------ */
 if ('REX_VALUE[18]' == "SSL") {
     // SSL - SCHALTER
@@ -152,17 +161,18 @@ if ('REX_VALUE[18]' == "SSL") {
 }
 
 if (!function_exists('is_old_android')) {
-function is_old_android($version = '4.2.0'){
- 
-	if(strstr($_SERVER['HTTP_USER_AGENT'], 'Android')){
-		
-		preg_match('/Android (\d+(?:\.\d+)+)[;)]/', $_SERVER['HTTP_USER_AGENT'], $matches);
- 
-		return version_compare($matches[1], $version, '<=');
- 
-	}
- 
-}
+    function is_old_android($version = '4.2.0')
+    {
+        
+        if (strstr($_SERVER['HTTP_USER_AGENT'], 'Android')) {
+            
+            preg_match('/Android (\d+(?:\.\d+)+)[;)]/', $_SERVER['HTTP_USER_AGENT'], $matches);
+            
+            return version_compare($matches[1], $version, '<=');
+            
+        }
+        
+    }
 }
 
 
@@ -177,7 +187,7 @@ function is_old_android($version = '4.2.0'){
  * @param string  $formelement - Name des Elementes in dem der Check ausgefuehrt wird
  * @return string
  */
- 
+
 if (!function_exists('doform_checkElements')) {
     function doform_checkElements($mustHave, $elements, $formelement)
     {
@@ -255,14 +265,19 @@ if (!function_exists('getValidIban')) {
         // define the pattern
         $pattern = '#(?P<value>((?=[0-9A-Z]{28}$)AL\d{10}[0-9A-Z]{16}$|^(?=[0-9A-Z]{24}$)AD\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)AT\d{18}$|^(?=[0-9A-Z]{22}$)BH\d{2}[A-Z]{4}[0-9A-Z]{14}$|^(?=[0-9A-Z]{16}$)BE\d{14}$|^(?=[0-9A-Z]{20}$)BA\d{18}$|^(?=[0-9A-Z]{22}$)BG\d{2}[A-Z]{4}\d{6}[0-9A-Z]{8}$|^(?=[0-9A-Z]{21}$)HR\d{19}$|^(?=[0-9A-Z]{28}$)CY\d{10}[0-9A-Z]{16}$|^(?=[0-9A-Z]{24}$)CZ\d{22}$|^(?=[0-9A-Z]{18}$)DK\d{16}$|^FO\d{16}$|^GL\d{16}$|^(?=[0-9A-Z]{28}$)DO\d{2}[0-9A-Z]{4}\d{20}$|^(?=[0-9A-Z]{20}$)EE\d{18}$|^(?=[0-9A-Z]{18}$)FI\d{16}$|^(?=[0-9A-Z]{27}$)FR\d{12}[0-9A-Z]{11}\d{2}$|^(?=[0-9A-Z]{22}$)GE\d{2}[A-Z]{2}\d{16}$|^(?=[0-9A-Z]{22}$)DE\d{20}$|^(?=[0-9A-Z]{23}$)GI\d{2}[A-Z]{4}[0-9A-Z]{15}$|^(?=[0-9A-Z]{27}$)GR\d{9}[0-9A-Z]{16}$|^(?=[0-9A-Z]{28}$)HU\d{26}$|^(?=[0-9A-Z]{26}$)IS\d{24}$|^(?=[0-9A-Z]{22}$)IE\d{2}[A-Z]{4}\d{14}$|^(?=[0-9A-Z]{23}$)IL\d{21}$|^(?=[0-9A-Z]{27}$)IT\d{2}[A-Z]\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)[A-Z]{2}\d{5}[0-9A-Z]{13}$|^(?=[0-9A-Z]{30}$)KW\d{2}[A-Z]{4}22!$|^(?=[0-9A-Z]{21}$)LV\d{2}[A-Z]{4}[0-9A-Z]{13}$|^(?=[0-9A-Z]{,28}$)LB\d{6}[0-9A-Z]{20}$|^(?=[0-9A-Z]{21}$)LI\d{7}[0-9A-Z]{12}$|^(?=[0-9A-Z]{20}$)LT\d{18}$|^(?=[0-9A-Z]{20}$)LU\d{5}[0-9A-Z]{13}$|^(?=[0-9A-Z]{19}$)MK\d{5}[0-9A-Z]{10}\d{2}$|^(?=[0-9A-Z]{31}$)MT\d{2}[A-Z]{4}\d{5}[0-9A-Z]{18}$|^(?=[0-9A-Z]{27}$)MR13\d{23}$|^(?=[0-9A-Z]{30}$)MU\d{2}[A-Z]{4}\d{19}[A-Z]{3}$|^(?=[0-9A-Z]{27}$)MC\d{12}[0-9A-Z]{11}\d{2}$|^(?=[0-9A-Z]{22}$)ME\d{20}$|^(?=[0-9A-Z]{18}$)NL\d{2}[A-Z]{4}\d{10}$|^(?=[0-9A-Z]{15}$)NO\d{13}$|^(?=[0-9A-Z]{28}$)PL\d{10}[0-9A-Z]{,16}n$|^(?=[0-9A-Z]{25}$)PT\d{23}$|^(?=[0-9A-Z]{24}$)RO\d{2}[A-Z]{4}[0-9A-Z]{16}$|^(?=[0-9A-Z]{27}$)SM\d{2}[A-Z]\d{10}[0-9A-Z]{12}$|^(?=[0-9A-Z]{,24}$)SA\d{4}[0-9A-Z]{18}$|^(?=[0-9A-Z]{22}$)RS\d{20}$|^(?=[0-9A-Z]{24}$)SK\d{22}$|^(?=[0-9A-Z]{19}$)SI\d{17}$|^(?=[0-9A-Z]{24}$)ES\d{22}$|^(?=[0-9A-Z]{24}$)SE\d{22}$|^(?=[0-9A-Z]{21}$)CH\d{7}[0-9A-Z]{12}$|^(?=[0-9A-Z]{24}$)TN59\d{20}$|^(?=[0-9A-Z]{26}$)TR\d{7}[0-9A-Z]{17}$|^(?=[0-9A-Z]{,23}$)AE\d{21}$|^(?=[0-9A-Z]{22}$)GB\d{2}[A-Z]{4}\d{14}))#';
         // check
-        if (preg_match($pattern, $iban, $matches)) {return true;} else {return false;}
+        if (preg_match($pattern, $iban, $matches)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 if (!function_exists('convertBytes')) {
     function convertBytes($value)
     {
-        if (is_numeric($value)) {return $value;} 
-        else {
+        if (is_numeric($value)) {
+            return $value;
+        } else {
             $value        = trim($value);
             $value_length = strlen($value);
             $qty          = substr($value, 0, $value_length - 1);
@@ -490,6 +505,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
         case "time":
         case "IBAN":
         case "BIC":
+        case "subject":
             $req  = '';
             $freq = '';
             if (isset($element[2]) && $element[2] == 1) {
@@ -503,10 +519,15 @@ for ($i = 0; $i < count($form_elements); $i++) {
                     $get        = explode('GET_', $element[3]);
                     $element[3] = rex_get($get[1]);
                 }
+                
+                if ($element[3] == "session") {
+                    $element[3] = $_SESSION["REX_VALUE[16]"];
+                    unset($_SESSION["REX_VALUE[16]"]);
+                }
                 if ($element[3] == "today") {
                     $element[3] = $formdatum;
                 }
-                 if ($element[3] == "now") {
+                if ($element[3] == "now") {
                     $element[3] = $formzeit;
                 }
                 
@@ -550,7 +571,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 break;
                             } else {
                                 $valid_ok = FALSE;
-                            } 
+                            }
                             break;
                         case "plz":
                             if (preg_match("/^[0-9]{5}$/", $inhalt)) {
@@ -559,7 +580,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 $valid_ok = FALSE;
                             }
                             break;
-						case "plz4":
+                        case "plz4":
                             if (preg_match("/^[0-9]{4}$/", $inhalt)) {
                                 break;
                             } else {
@@ -587,7 +608,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 break;
                             } else {
                                 $valid_ok = FALSE;
-								 break;
+                                break;
                             }
                             break;
                         case "iban":
@@ -595,7 +616,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 break;
                             } else {
                                 $valid_ok = FALSE;
-								 break;
+                                break;
                             }
                             break;
                         case "date":
@@ -614,11 +635,12 @@ for ($i = 0; $i < count($form_elements); $i++) {
                                 $valid_ok = FALSE;
                                 break;
                             }
-                             break;
-                         case "time":   
-                            if( !(bool)preg_match('/^(?:2[0-3]||(([0-9]||0[0-9])||1[0-9])):[0-5][0-9]$/', trim($inhalt)) ) {
-								$valid_ok = FALSE;
-                                break;}
+                            break;
+                        case "time":
+                            if (!(bool) preg_match('/^(?:2[0-3]||(([0-9]||0[0-9])||1[0-9])):[0-5][0-9]$/', trim($inhalt))) {
+                                $valid_ok = FALSE;
+                                break;
+                            }
                             break;
                         case "bic":
                             if (preg_match("#^[a-zA-Z]{6}[a-zA-Z0-9]{2,5}$#", $inhalt)) {
@@ -668,7 +690,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
             }
             $placeholder = '';
             // ### /Validierung
-            if ($element[0] == "hidden") { 
+            if ($element[0] == "hidden") {
                 $inptype = "hidden";
             }
             if ($element[0] == "BIC") {
@@ -680,11 +702,12 @@ for ($i = 0; $i < count($form_elements); $i++) {
                 $inptype     = "text";
             }
             if ($element[0] == "date") {
-				$placeholder = ' placeholder="tt.mm.jjjj"';
-				if(is_old_android()) {$inptype     = "text";}
-				else {
-				$inptype     = "date";
-				}
+                $placeholder = ' placeholder="tt.mm.jjjj"';
+                if (is_old_android()) {
+                    $inptype = "text";
+                } else {
+                    $inptype = "date";
+                }
             }
             if ($element[0] == "time") {
                 $placeholder = ' placeholder="hh:mm"';
@@ -1127,8 +1150,8 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
                 $v2 = substr($v, 0, -5) . 'XXXXX';
                 switch ($AFE[$key][0]) {
                     case "subjectselect":
-                         $sselect=$v.' - ';
-                         break;
+                        $sselect = $v . ' - ';
+                        break;
                     case "BIC":
                         $mailbodyhtml .= '<span class="slabel">' . $fcounter . '. ' . $AFE[$key][1] . ": </span>" . strtoupper($v) . '<br />';
                         $mailbody .= $xcounter . '. ' . $AFE[$key][1] . ": " . strtoupper($v) . "\n";
@@ -1157,6 +1180,15 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
                         $rmailbodyhtml .= '<h2>' . $v . '</h2>';
                         $rmailbody .= "\n" . '---' . $v . "\n" . '---------------------------------------------------------' . "\n";
                         break;
+                    case "subject":
+                        $mailbodyhtml .= '<span class="slabel">' . $fcounter . '. ' . $AFE[$key][1] . ": </span>" . stripslashes($v) . '<br />';
+                        $mailbody .= $xcounter . '. ' . $AFE[$key][1] . ": " . stripslashes($v) . "\n";
+                        $subject = "Anfrage zu: " . stripslashes($v);
+                        $fcounter++;
+                        $xcounter++;
+                        break;
+                    
+                    
                     default:
                         $mailbodyhtml .= '<span class="slabel">' . $fcounter . '. ' . $AFE[$key][1] . ": </span>" . $v . '<br />';
                         $mailbody .= $xcounter . '. ' . $AFE[$key][1] . ": " . $v . "\n";
@@ -1168,7 +1200,11 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
             }
         }
     }
-    $mail->Subject =  $mail->Subject = $sselect."REX_VALUE[4]"; // Betreff
+    if ($subject != "") {
+        $mail->Subject = $subject; // Betreff
+    } else {
+        $mail->Subject = $mail->Subject = $sselect . "REX_VALUE[4]"; // Betreff 
+    }
     $mail->CharSet = 'UTF-8'; // Zeichensatz    
     // HTML-EMAIL JA /NEIN
     if ("REX_VALUE[12]" == 'ja') {
@@ -1226,7 +1262,7 @@ if (isset($FORM[$formname][$formname . 'send']) && $FORM[$formname][$formname . 
         }
     }
     // =================MAIL-RESPONDER-ENDE=========================
-unset($_SESSION["formcheck"]); //
+    unset($_SESSION["formcheck"]); //
 ?>
 <div class="formthanks">REX_HTML_VALUE[6]</div>
  
