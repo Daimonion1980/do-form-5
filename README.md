@@ -25,6 +25,12 @@ FAQ: https://github.com/skerbis/do-form-5/wiki/FAQ
 
 ![](<screenshot_.png>)
 
+### Neu in Version 5.1 
+subject| 
+Textfeld als Betreff
+und Session kann nun als Wert in alle Textfelder übernommen werden. 
+Verwendung: subject|Produkt|0|session||  oder text|Produkt|0|session||
+
 ### Neu in Version 5.0.4 
 subjectselect| 
 Selectfield zur Übergabe eines Betreffs. 
