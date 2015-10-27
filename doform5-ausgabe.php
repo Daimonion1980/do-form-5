@@ -2,7 +2,7 @@
 /**==================================================
  * REDAXO-Modul: do form!  http://klxm.de/produkte/
  * Bereich: Ausgabe
- * Version: 5.1 , Datum: 28.04.2015
+ * Version: 5.1.1 , Datum: 27.10.2015
  *==================================================*/
 //   KONFIGURATION
 $ftitel                      = 'REX_VALUE[4]'; // Überschrift / Betreff der E-Mail
@@ -378,6 +378,7 @@ for ($i = 0; $i < count($form_elements); $i++) {
     }
     switch ($element[0]) {
         case "svar":
+        case "session":
             $formoutput[] = '
           <input type="hidden" title="' . $element[1] . '" name="FORM[' . $formname . '][el_' . $i . ']" id="el_' . $i . '" value="' . $_SESSION["REX_VALUE[16]"] . '" />';
             break;
@@ -490,10 +491,10 @@ for ($i = 0; $i < count($form_elements); $i++) {
                     $checked = '';
                 }
                 $fo .= '<br/><input type="radio" class="formradio" name="FORM[' . $formname . '][el_' . $i . ']" id="r' . $i . '_Rel_' . $xi . '" value="' . $val[$xi] . '" ' . $checked . ' />' . "\n";
-                $fo .= '<label class="formradio" ' . $warning["el_" . $i] . 'for="r' . $i . '_Rel_' . $xi . '" >' . $ro[$xi] . '</label>' . "\n";
+                $fo .= '<label class="radiolabel" ' . $warning["el_" . $i] . 'for="r' . $i . '_Rel_' . $xi . '" >' . $ro[$xi] . '</label>' . "\n";
             }
             $fo .= '</div><br />' . "\n";
-            $formoutput[$i] = '<div class="fieldblock ' . $warnblock["el_" . $i] . '">' . $fo . '<br/></div>';
+            $formoutput[$i] = '<div class="fieldblock radioblock' . $warnblock["el_" . $i] . '">' . $fo . '<br/></div>';
             break;
         //  Ende Radio-Buttons
         case "hidden":
