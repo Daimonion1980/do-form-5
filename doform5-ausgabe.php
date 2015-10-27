@@ -2,7 +2,7 @@
 /**==================================================
  * REDAXO-Modul: do form!  http://klxm.de/produkte/
  * Bereich: Ausgabe
- * Version: 5.1.1 , Datum: 27.10.2015
+ * Version: 5.1.1 classic, Datum: 27.10.2015
  *==================================================*/
 //   KONFIGURATION
 $ftitel                      = 'REX_VALUE[4]'; // Überschrift / Betreff der E-Mail
