@@ -1,11 +1,11 @@
-redaxo do form! 5
+redaxo do form! 5 classic
 =================
 ![](<do-code.jpg>) 
 Formulargenerator für Redaxo CMS
 --------------------------------
 
 Es handelt sich hierbei um eine kostenlose und frei verwendbare Version, entsprechend der Lizenz Ihrer Redaxo-Installation. Eine Garantie oder Gewährleistung auf Funktionalität und Fehlerfreiheit wird nicht geleistet. Die KLXM Crossmedia haftet nicht für eventuell auftretenden Datenverlust. Bei Problemen, wenden Sie sich bitte an das Redaxo-Forum. 
-Javascripte und CSS-Definitionen sind nicht Bestandteil der freien Version.
+Javascripte und CSS-Definitionen sind nicht Bestandteil der classic Version.
 
 **Über eine Erwähnung im Impressum würden wir uns sehr freuen.** 
 
@@ -25,17 +25,21 @@ FAQ: https://github.com/skerbis/do-form-5/wiki/FAQ
 
 ![](<screenshot_.png>)
 
-### Neu in Version 5.1 
+### Version 5.1.1 classic
+Letzte Version für Redaxo 4.x
+
+
+### Version 5.1 
 subject| 
 Textfeld als Betreff
 und Session kann nun als Wert in alle Textfelder übernommen werden. 
 Verwendung: subject|Produkt|0|session||  oder text|Produkt|0|session||
 
-### Neu in Version 5.0.4 
+### Version 5.0.4 
 subjectselect| 
 Selectfield zur Übergabe eines Betreffs. 
 
-### Neu in Version 5.0.2 
+### Version 5 – 5.0.2 
 
 Diese Version sollte nicht als Ersatz für do form! 4 eingesetzt werden.
 
