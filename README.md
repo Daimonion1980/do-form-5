@@ -1,4 +1,5 @@
 redaxo do form! 5 classic
+**Weiterentwicklung für REDAXO 4 eingestellt** 
 =================
 ![](<do-code.jpg>) 
 Formulargenerator für Redaxo CMS
@@ -10,13 +11,8 @@ Javascripte und CSS-Definitionen sind nicht Bestandteil der classic Version.
 **Über eine Erwähnung im Impressum würden wir uns sehr freuen.** 
 
 z.B. Redaxo-Modul: do form!, Werbeagentur KLXM Crossmedia GmbH, http://klxm.de
-
-Homepage: http://klxm.de/produkte/redaxo-formulargenerator/
-
 Imressum: http://klxm.de/impressum/
-
 WIKI: https://github.com/skerbis/do-form-5/wiki
-
 FAQ: https://github.com/skerbis/do-form-5/wiki/FAQ
 
 
@@ -48,7 +44,7 @@ Diese Version sollte nicht als Ersatz für do form! 4 eingesetzt werden.
     die Bestätigungsmail
 
 -   Das Date- und Time-Feld wurde durch HTML5-Date/Time-Feld ersetzt. Dadurch können die nativen
-    Kalender-Widgets verwendet werden. Fallback per Jquery-Datepicker
+    Kalender-Widgets verwendet werden. Fallback per Javascript-Datepicker
     empfehlenswert. Durch ddie Parameter today und now, kann das aktuelle Datum oder Uhrzeit
     vorausgewählt werden.
 
