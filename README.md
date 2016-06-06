@@ -1,4 +1,4 @@
-redaxo do form! 5 classic
+redaxo do form! classic
 =================
 (Weiterentwicklung für REDAXO 4 eingestellt)
 
