@@ -1,6 +1,6 @@
-redaxo do form! classic
+redaxo do form! 5
 =================
-(Weiterentwicklung eingestellt)
+(Weiterentwicklung für Redaxo 4.x eingestellt)
 
 Formulargenerator für Redaxo CMS
 --------------------------------
