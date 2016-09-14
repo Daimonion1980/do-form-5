@@ -1,4 +1,4 @@
-redaxo do form! 5
+do form! 5
 =================
 (Weiterentwicklung für Redaxo 4.x eingestellt)
 
