@@ -4,11 +4,9 @@
  * REDAXO-Modul: do form!
  * Bereich: Eingabe 
  */
-$doformversion="5.1.1 classic";
+$doformversion="5.1.1";
  /**
  * ab Redaxo Version: 4.5
- * Werbeagentur KLXM Crossmedia  
- * www.klxm.de
  * Hinweise:
  * Formulargenerator für PHPMAILER
  * Required Addons: TinyMCE oder ckeditor, PHPMAiler
@@ -423,7 +421,7 @@ Datei anh&#228;ngen: </strong>REX_MEDIA_BUTTON[1] </div>
    
    
 <br/>
-  <div align="right">Bearbeitung: <a href="http://www.klxm.de" target="_blank">Thomas Skerbis - KLXM Crossmedia GmbH</a></div>
+  
  
  
 <div id="anleitung" style="<?php echo (!isset ($anleitung) || !$anleitung) ? 'display: none' : 'display: block'; ?>"> 
@@ -459,11 +457,10 @@ upload|Upload JPG|0||jpg;jpeg;gif||0.5m
     <br/>
   </div>
   <div class="formgenheadline">Kurzbeschreibung:</div>
-  klxm do form! 5.x basiert auf den in Redaxo 3.2 mitgelieferten Formular-Generator.<br />
+  do form! 5.x basiert auf den in Redaxo 3.2 mitgelieferten Formular-Generator.<br />
    Beim ersten Aufruf erstellt das Modul eine Konfiguration für ein Standard-Kontaktformular. <br/>
      Im Beispiel-Formular sehen Sie Möglichkeiten zur Konfiguration. <br/>
 <a href="https://github.com/skerbis/do-form-5" target="_blank">Eine ausf&uuml;hrliche Anleitung.</a><br>
-<a href="http://klxm.de/produkte/redaxo-formulargenerator/" target="_blank">Download der neusten Version </a><br />
      <br />
 <strong>Empfehlung:</strong><br />
      Wir empfehlen im PHP-Mailer die Einstellung SMTP-AUTH zu verwenden. 
