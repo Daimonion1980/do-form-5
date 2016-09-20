@@ -10,7 +10,7 @@ Javascripte und CSS-Definitionen sind nicht Bestandteil der classic Version.
 
 **Über eine Erwähnung im Impressum würden wir uns sehr freuen.** 
 
-z.B. Redaxo-Modul: do form!, Werbeagentur KLXM Crossmedia GmbH, http://klxm.de
+
 Imressum: http://klxm.de/impressum/
 WIKI: https://github.com/skerbis/do-form-5/wiki
 FAQ: https://github.com/skerbis/do-form-5/wiki/FAQ
@@ -35,7 +35,7 @@ Verwendung: subject|Produkt|0|session||  oder text|Produkt|0|session||
 subjectselect| 
 Selectfield zur Übergabe eines Betreffs. 
 
-### Version 5 – 5.0.2 
+### Version 5 bis  5.0.2 
 
 Diese Version sollte nicht als Ersatz für do form! 4 eingesetzt werden.
 
@@ -45,7 +45,7 @@ Diese Version sollte nicht als Ersatz für do form! 4 eingesetzt werden.
 
 -   Das Date- und Time-Feld wurde durch HTML5-Date/Time-Feld ersetzt. Dadurch können die nativen
     Kalender-Widgets verwendet werden. Fallback per Javascript-Datepicker
-    empfehlenswert. Durch ddie Parameter today und now, kann das aktuelle Datum oder Uhrzeit
+    empfehlenswert. Durch die Parameter today und now, kann das aktuelle Datum oder Uhrzeit
     vorausgewählt werden.
 
 -   Das alte date-Feld heißt jetzt dateselect. xdate wurde entfernt.  
